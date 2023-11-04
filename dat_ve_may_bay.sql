@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 04, 2023 lúc 12:36 PM
+-- Thời gian đã tạo: Th10 04, 2023 lúc 06:35 PM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.2.4
 
@@ -51,6 +51,7 @@ INSERT INTO `cho_ngoi` (`id`, `ma_khach_hang`, `ma_chuyen_bay`, `trang_thai`) VA
 
 CREATE TABLE `chuyen_bay` (
   `id` int(11) NOT NULL,
+  `ten_may_bay` varchar(255) NOT NULL,
   `id_diem_di` int(11) NOT NULL,
   `id_diem_den` int(11) NOT NULL,
   `ngay_khoi_hanh` date NOT NULL,
@@ -62,10 +63,10 @@ CREATE TABLE `chuyen_bay` (
 -- Đang đổ dữ liệu cho bảng `chuyen_bay`
 --
 
-INSERT INTO `chuyen_bay` (`id`, `id_diem_di`, `id_diem_den`, `ngay_khoi_hanh`, `thoi_gian_di`, `thoi_gian_den`) VALUES
-(201, 301, 302, '2023-11-10', '2023-11-10 08:00:00', '2023-11-10 10:00:00'),
-(202, 302, 303, '2023-11-11', '2023-11-11 09:00:00', '2023-11-11 11:00:00'),
-(203, 303, 301, '2023-11-12', '2023-11-12 10:00:00', '2023-11-12 12:00:00');
+INSERT INTO `chuyen_bay` (`id`, `ten_may_bay`, `id_diem_di`, `id_diem_den`, `ngay_khoi_hanh`, `thoi_gian_di`, `thoi_gian_den`) VALUES
+(201, 'A1', 301, 302, '2023-11-10', '2023-11-10 08:00:00', '2023-11-10 10:00:00'),
+(202, 'A2', 302, 303, '2023-11-11', '2023-11-11 09:00:00', '2023-11-11 11:00:00'),
+(203, 'B1', 303, 301, '2023-11-12', '2023-11-12 10:00:00', '2023-11-12 12:00:00');
 
 -- --------------------------------------------------------
 
@@ -121,7 +122,6 @@ INSERT INTO `khach_hang` (`id`, `user`, `pass`, `email`, `address`, `tel`, `role
 
 CREATE TABLE `ve_may_bay` (
   `id` int(11) NOT NULL,
-  `ten_may_bay` varchar(255) NOT NULL,
   `ma_chuyen_bay` int(11) NOT NULL,
   `ma_khach_hang` int(11) NOT NULL,
   `gia_ve` int(10) NOT NULL,
@@ -133,10 +133,10 @@ CREATE TABLE `ve_may_bay` (
 -- Đang đổ dữ liệu cho bảng `ve_may_bay`
 --
 
-INSERT INTO `ve_may_bay` (`id`, `ten_may_bay`, `ma_chuyen_bay`, `ma_khach_hang`, `gia_ve`, `loai_ve`, `cho_ngoi`) VALUES
-(1, '', 201, 101, 500000, 1, 1),
-(2, '', 202, 102, 600000, 2, 2),
-(3, '', 203, 103, 550000, 1, 3);
+INSERT INTO `ve_may_bay` (`id`, `ma_chuyen_bay`, `ma_khach_hang`, `gia_ve`, `loai_ve`, `cho_ngoi`) VALUES
+(1, 201, 101, 500000, 1, 1),
+(2, 202, 102, 600000, 2, 2),
+(3, 203, 103, 550000, 1, 3);
 
 --
 -- Chỉ mục cho các bảng đã đổ
