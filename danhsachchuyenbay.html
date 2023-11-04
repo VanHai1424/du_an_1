@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/styles.css">
+    <title>ASM</title>
+</head>
+
+<body onload="run()">
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="nav">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="./index.html">Trang Chủ</a></li>
+                    <li class="nav-item"><a href="./danhsachchuyenbay.html">Chuyến Bay</a></li>
+                    <li class="nav-item"><a href="./dangnhap.html">Đăng Nhập</a></li>
+
+                </ul>
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+        </div>
+
+        <!-- content -->
+        <div class="content">
+            <!-- Tickets -->
+            <div id="tickets" class="tickets">
+                <h1>Danh Sách Chuyến Bay</h1>
+                <div class="tickets-content">
+                    <div class="tikets-buy">
+                        <div class="row-item">
+                            <div class="item">
+                                <img src="./img/anh1.png" alt="">
+                                <div class="item-text">
+                                    <h3>Hà Nội (HAN) đến TP.Hồ Chí Minh (SGN)</h3>
+                                    <p class="date">Ngày đi: 24/03/2023</p>
+                                </div>
+                                <p class="price">999,000 VND</p>
+                                <button class="btn-buy">Đặt Vé</button>
+                            </div>
+                            <div class="item">
+                                <img src="./img/anh4.png" alt="">
+                                <div class="item-text">
+                                    <h3>TP.Hồ Chí Minh (SGN) đến Hà Nội (HAN)</h3>
+                                    <p class="date">Ngày đi: 23/03/2023</p>
+                                </div>
+                                <p class="price">888,000 VND</p>
+                                <button class="btn-buy">Đặt Vé</button>
+                            </div>
+                            <div class="item">
+                                <img src="./img/anh2.png" alt="">
+                                <div class="item-text">
+                                    <h3>TP.Hồ Chí Minh (SGN) đến Hà Nội (HAN)</h3>
+                                    <p class="date">Ngày đi: 25/03/2023</p>
+                                </div>
+                                <p class="price">777,000 VND</p>
+                                <button class="btn-buy">Đặt Vé</button>
+                            </div>
+                            <div class="item">
+                                <img src="./img/anh3.png" alt="">
+                                <div class="item-text">
+                                    <h3>TP.Hồ Chí Minh (SGN) đến Đà Nẵng (DAD)</h3>
+                                    <p class="date">Ngày đi: 26/03/2023</p>
+                                </div>
+                                <p class="price">666,000 VND</p>
+                                <button class="btn-buy">Đặt Vé</button>
+                            </div>
+                        </div>
+                        <div class="row-item">
+                            <div class="item">
+                                <img src="./img/anh5.png" alt="">
+                                <div class="item-text">
+                                    <h3>TP.Hồ Chí Minh (SGN) đến Đà Lạt (DLI)</h3>
+                                    <p class="date">Ngày đi: 27/03/2023</p>
+                                </div>
+                                <p class="price">555,000 VND</p>
+                                <button class="btn-buy">Đặt Vé</button>
+                            </div>
+                            <div class="item">
+                                <img src="./img/anh7.png" alt="">
+                                <div class="item-text">
+                                    <h3>TP.Hồ Chí Minh đến Quy Nhơn</h3>
+                                    <p class="date">Ngày đi: 28/03/2023</p>
+                                </div>
+                                <p class="price">444,000 VND</p>
+                                <button class="btn-buy">Đặt Vé</button>
+                            </div>
+                            <div class="item">
+                                <img src="./img/anh6.png" alt="">
+                                <div class="item-text">
+                                    <h3>Nha Trang (CXR) đến Hải Phòng (HPH) </h3>
+                                    <p class="date">Ngày đi: 29/03/2023</p>
+                                </div>
+                                <p class="price">333,000 VND</p>
+                                <button class="btn-buy">Đặt Vé</button>
+                            </div>
+                            <div class="item">
+                                <img src="./img/anh8.png" alt="">
+                                <div class="item-text">
+                                    <h3>Hà Nội (HAN) đến Côn Đảo (VCS)</h3>
+                                    <p class="date">Ngày đi: 30/03/2023</p>
+                                </div>
+                                <p class="price">222,000 VND</p>
+                                <button class="btn-buy">Đặt Vé</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="body-footer">
+                <div class="footer__info">
+                    <p class="footer-name">THÔNG TIN LIÊN HỆ</p>
+                    <div class="footer-info">
+                        <div href="#" class="info-link">
+                            <i class="fa-solid fa-location-dot info-icon"></i>
+                            <p class="info-text">Địa chỉ: Sài Sơn - Quốc Oai - Hà Nội</p>
+                        </div>
+                        <div href="#" class="info-link">
+                            <i class="fa-solid fa-phone info-icon"></i>
+                            <p class="info-text">Điện thoại: <a href="tell: +00 0123456789">0123456789</a></p>
+                        </div>
+                        <div href="#" class="info-link">
+                            <i class="fa-solid fa-envelope info-icon"></i>
+                            <p class="info-text">Email: <a href="mailto:vanhaidasd@1212113.com">vanhaidasd@1212113.com</a></p>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="footer__list">
+                    <p class="footer-name">DANH MỤC CHÍNH</p>
+                    <ul class="footer-list">
+                        <li class="footer-list-item"><a href="#!">Giới thiệu</a></li>
+                        <li class="footer-list-item"><a href="#!">Tin tức & Sự kiện</a></li>
+                        <li class="footer-list-item"><a href="#!">Hình ảnh hoạt động</a></li>
+                        <li class="footer-list-item"><a href="#!">Video</a></li>
+                        <li class="footer-list-item"><a href="#!">Liên hệ</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+        </footer>   
+    </div>
+    <script src="main.js"></script>
+</body>
+</html> 
