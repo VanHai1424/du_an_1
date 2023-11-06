@@ -21,7 +21,7 @@ body {
     height: auto;
 }
 
-.container2 .header {
+.container .header {
     height: 60px;
 }
 
@@ -612,7 +612,7 @@ h3 {
 .bill {
     width: 900px;
     box-shadow: 0 0 8px #ccc;
-    padding: 10px 0 10px 0;
+    padding: 0 0 10px 0;
     font-size: 18px;
     font-weight: 700;
     line-height: 30px;

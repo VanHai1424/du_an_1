@@ -3,21 +3,21 @@
     if(isset($_GET['act']) && ($_GET['act'] != '')) {
         $act = $_GET['act'];
         switch($act) {
-            case 'list':
-                include 'list.php';
+            case 'listkh':
+                include 'khachhang/list.php';
                 break;
-            case 'add':
-                include 'add.php';
+            case 'addkh':
+                include 'khachhang/add.php';
                 break;
-            case 'update':
-                include 'update.php';
+            case 'updatekh':
+                include 'khachhang/update.php';
                 break;
             case 'bieudo':
                 include 'bieudo.php';
                 break;
         }
     } else {
-        include 'list.php';
+        include 'home.php';
     }
     include 'footer.php';
 

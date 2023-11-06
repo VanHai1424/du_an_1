@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Danh sách loại hàng</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/admin.css">
 
 </head>
 
@@ -17,11 +17,13 @@
         </div>
         <div class="menu">
             <ul class="">
-                <li><a href="index.php?act=list">Trang chủ</a></li>
-                <li><a href="../../loai/danhsach_loaihang.php">Loại hàng</a></li>
-                <li><a href="../../hanghoa/danhsach_hanghoa.php">Hàng hóa</a></li>
-                <li><a href="./index.php?act=kh">Khách hàng</a></li>
-                <li><a href="../../binhluan/danhsach_binhluan.php">Bình luận</a></li>
-                <li><a href="./index.php?act=tk">Thống kê</a></li>
+                <li><a href="index.php">Trang chủ</a></li>
+                <li><a href="">Địa điểm</a></li>
+                <li><a href="">Chuyến bay</a></li>
+                <li><a href="">Chỗ ngồi</a></li>
+                <li><a href="">Vé máy bay</a></li>
+                <li><a href="index.php?act=listkh">Khách hàng</a></li>
+                <li><a href="">Thống kê</a></li>
             </ul>
         </div>
+
