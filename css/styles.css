@@ -157,7 +157,7 @@ body {
 
 .tickets {
     text-align: center;
-    padding: 60px 0;
+    padding: 1px 0 60px;
     background-color: #ffefef;
 }
 
@@ -399,6 +399,7 @@ h3 {
 }
 
 .btn-buy {
+    display: block;
     width: 90%;
     padding: 10px;
     margin: 0 auto 20px;
@@ -408,6 +409,7 @@ h3 {
     border-radius: 6px;
     opacity: 0.9;
     border: none;
+    text-decoration: none;
 }
 
 .btn-buy:hover {

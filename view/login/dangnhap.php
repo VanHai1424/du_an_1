@@ -13,8 +13,8 @@
                 <p class="content2-text"></p>
             </div>
             <div class="row-input">
-                <a href="dangky.html">Đăng ký tài khoản</a>
-                <a href="quenmk.html">Quên mật khẩu</a>
+                <a href="index.php?act=dangky">Đăng ký tài khoản</a>
+                <a href="index.php?act=quenmk">Quên mật khẩu</a>
             </div>
 
             <button type="submit" class="form-login-btn">Đăng Nhập</button>

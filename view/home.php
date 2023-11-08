@@ -62,7 +62,7 @@
                                     <p class="date">Ngày đi: 24/03/2023</p>
                                 </div>
                                 <p class="price">999,000 VND</p>
-                                <button class="btn-buy">Đặt Vé</button>
+                                <a href="index.php?act=datve" class="btn-buy">Đặt Vé</a>
                             </div>
                             <div class="item">
                                 <img src="./img/anh4.png" alt="">
@@ -71,7 +71,7 @@
                                     <p class="date">Ngày đi: 23/03/2023</p>
                                 </div>
                                 <p class="price">888,000 VND</p>
-                                <button class="btn-buy">Đặt Vé</button>
+                                <a href="index.php?act=datve" class="btn-buy">Đặt Vé</a>
                             </div>
                             <div class="item">
                                 <img src="./img/anh2.png" alt="">
@@ -80,7 +80,7 @@
                                     <p class="date">Ngày đi: 25/03/2023</p>
                                 </div>
                                 <p class="price">777,000 VND</p>
-                                <button class="btn-buy">Đặt Vé</button>
+                                <a href="index.php?act=datve" class="btn-buy">Đặt Vé</a>
                             </div>
                             <div class="item">
                                 <img src="./img/anh3.png" alt="">
@@ -89,7 +89,7 @@
                                     <p class="date">Ngày đi: 26/03/2023</p>
                                 </div>
                                 <p class="price">666,000 VND</p>
-                                <button class="btn-buy">Đặt Vé</button>
+                                <a href="index.php?act=datve" class="btn-buy">Đặt Vé</a>
                             </div>
                         </div>
                         <div class="row-item">
@@ -100,7 +100,7 @@
                                     <p class="date">Ngày đi: 27/03/2023</p>
                                 </div>
                                 <p class="price">555,000 VND</p>
-                                <button class="btn-buy">Đặt Vé</button>
+                                <a href="index.php?act=datve" class="btn-buy">Đặt Vé</a>
                             </div>
                             <div class="item">
                                 <img src="./img/anh7.png" alt="">
@@ -109,7 +109,7 @@
                                     <p class="date">Ngày đi: 28/03/2023</p>
                                 </div>
                                 <p class="price">444,000 VND</p>
-                                <button class="btn-buy">Đặt Vé</button>
+                                <a href="index.php?act=datve" class="btn-buy">Đặt Vé</a>
                             </div>
                             <div class="item">
                                 <img src="./img/anh6.png" alt="">
@@ -118,7 +118,7 @@
                                     <p class="date">Ngày đi: 29/03/2023</p>
                                 </div>
                                 <p class="price">333,000 VND</p>
-                                <button class="btn-buy">Đặt Vé</button>
+                                <a href="index.php?act=datve" class="btn-buy">Đặt Vé</a>
                             </div>
                             <div class="item">
                                 <img src="./img/anh8.png" alt="">
@@ -127,7 +127,7 @@
                                     <p class="date">Ngày đi: 30/03/2023</p>
                                 </div>
                                 <p class="price">222,000 VND</p>
-                                <button class="btn-buy">Đặt Vé</button>
+                                <a href="index.php?act=datve" class="btn-buy">Đặt Vé</a>
                             </div>
                         </div>
                     </div>
