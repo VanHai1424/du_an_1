@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 04, 2023 lúc 06:35 PM
+-- Thời gian đã tạo: Th10 09, 2023 lúc 03:37 PM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.2.4
 
@@ -24,49 +24,34 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `cho_ngoi`
---
-
-CREATE TABLE `cho_ngoi` (
-  `id` int(11) NOT NULL,
-  `ma_khach_hang` int(11) NOT NULL,
-  `ma_chuyen_bay` int(11) NOT NULL,
-  `trang_thai` tinyint(2) NOT NULL DEFAULT 1 COMMENT '0. het, 1. con'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Đang đổ dữ liệu cho bảng `cho_ngoi`
---
-
-INSERT INTO `cho_ngoi` (`id`, `ma_khach_hang`, `ma_chuyen_bay`, `trang_thai`) VALUES
-(1, 101, 201, 1),
-(2, 102, 202, 0),
-(3, 103, 203, 1);
-
--- --------------------------------------------------------
-
---
 -- Cấu trúc bảng cho bảng `chuyen_bay`
 --
 
 CREATE TABLE `chuyen_bay` (
   `id` int(11) NOT NULL,
   `ten_may_bay` varchar(255) NOT NULL,
-  `id_diem_di` int(11) NOT NULL,
-  `id_diem_den` int(11) NOT NULL,
+  `id_diemDi` int(11) NOT NULL,
+  `id_diemDen` int(11) NOT NULL,
   `ngay_khoi_hanh` date NOT NULL,
-  `thoi_gian_di` datetime NOT NULL,
-  `thoi_gian_den` datetime NOT NULL
+  `thoi_gian_di` time NOT NULL,
+  `thoi_gian_den` time NOT NULL,
+  `trang_thai` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+-- --------------------------------------------------------
+
 --
--- Đang đổ dữ liệu cho bảng `chuyen_bay`
+-- Cấu trúc bảng cho bảng `dat_ve`
 --
 
-INSERT INTO `chuyen_bay` (`id`, `ten_may_bay`, `id_diem_di`, `id_diem_den`, `ngay_khoi_hanh`, `thoi_gian_di`, `thoi_gian_den`) VALUES
-(201, 'A1', 301, 302, '2023-11-10', '2023-11-10 08:00:00', '2023-11-10 10:00:00'),
-(202, 'A2', 302, 303, '2023-11-11', '2023-11-11 09:00:00', '2023-11-11 11:00:00'),
-(203, 'B1', 303, 301, '2023-11-12', '2023-11-12 10:00:00', '2023-11-12 12:00:00');
+CREATE TABLE `dat_ve` (
+  `id` int(11) NOT NULL,
+  `id_ve` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `ngay_dat` date NOT NULL,
+  `gio_dat` time NOT NULL,
+  `gia_ve` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -80,39 +65,31 @@ CREATE TABLE `dia_diem` (
   `img` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+-- --------------------------------------------------------
+
 --
--- Đang đổ dữ liệu cho bảng `dia_diem`
+-- Cấu trúc bảng cho bảng `ghe_ngoi`
 --
 
-INSERT INTO `dia_diem` (`id`, `ten`, `img`) VALUES
-(301, 'Điểm đi 1', 'dia_diem1.jpg'),
-(302, 'Điểm đi 2', 'dia_diem2.jpg'),
-(303, 'Điểm đi 3', 'dia_diem3.jpg');
+CREATE TABLE `ghe_ngoi` (
+  `id` int(11) NOT NULL,
+  `ma_ghe` int(11) NOT NULL,
+  `id_ve` int(11) NOT NULL,
+  `trang_thai` tinyint(2) NOT NULL COMMENT '0. het slot, 1. con slot'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `khach_hang`
+-- Cấu trúc bảng cho bảng `tai_khoan`
 --
 
-CREATE TABLE `khach_hang` (
+CREATE TABLE `tai_khoan` (
   `id` int(11) NOT NULL,
   `user` varchar(255) NOT NULL,
   `pass` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `address` varchar(255) NOT NULL,
-  `tel` varchar(11) NOT NULL,
-  `role` tinyint(2) NOT NULL DEFAULT 1 COMMENT '1. user, 0. admin'
+  `role` tinyint(2) NOT NULL COMMENT '0. admin, 1.nguoi dung'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Đang đổ dữ liệu cho bảng `khach_hang`
---
-
-INSERT INTO `khach_hang` (`id`, `user`, `pass`, `email`, `address`, `tel`, `role`) VALUES
-(101, 'user1', 'pass1', 'user1@email.com', 'Địa chỉ 1', '1234567890', 1),
-(102, 'user2', 'pass2', 'user2@email.com', 'Địa chỉ 2', '1234567891', 1),
-(103, 'user3', 'pass3', 'user3@email.com', 'Địa chỉ 3', '1234567892', 1);
 
 -- --------------------------------------------------------
 
@@ -122,41 +99,30 @@ INSERT INTO `khach_hang` (`id`, `user`, `pass`, `email`, `address`, `tel`, `role
 
 CREATE TABLE `ve_may_bay` (
   `id` int(11) NOT NULL,
-  `ma_chuyen_bay` int(11) NOT NULL,
-  `ma_khach_hang` int(11) NOT NULL,
-  `gia_ve` int(10) NOT NULL,
-  `loai_ve` tinyint(2) NOT NULL COMMENT '1. ve thuong, 2. ve hang thuong gia\r\n',
-  `cho_ngoi` int(11) NOT NULL
+  `gia_ve` int(11) NOT NULL,
+  `loai_ve` tinyint(2) NOT NULL COMMENT '1.pho thong, 2.thuong gia',
+  `id_chuyen_bay` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Đang đổ dữ liệu cho bảng `ve_may_bay`
---
-
-INSERT INTO `ve_may_bay` (`id`, `ma_chuyen_bay`, `ma_khach_hang`, `gia_ve`, `loai_ve`, `cho_ngoi`) VALUES
-(1, 201, 101, 500000, 1, 1),
-(2, 202, 102, 600000, 2, 2),
-(3, 203, 103, 550000, 1, 3);
 
 --
 -- Chỉ mục cho các bảng đã đổ
 --
 
 --
--- Chỉ mục cho bảng `cho_ngoi`
---
-ALTER TABLE `cho_ngoi`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `ma_chuyen_bay` (`ma_chuyen_bay`),
-  ADD KEY `ma_khach_hang` (`ma_khach_hang`);
-
---
 -- Chỉ mục cho bảng `chuyen_bay`
 --
 ALTER TABLE `chuyen_bay`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `id_diem_di` (`id_diem_di`),
-  ADD KEY `id_diem_den` (`id_diem_den`);
+  ADD KEY `fk_chuyen_bay_san_bay_di` (`id_diemDi`),
+  ADD KEY `fk_chuyen_bay_san_bay_den` (`id_diemDen`);
+
+--
+-- Chỉ mục cho bảng `dat_ve`
+--
+ALTER TABLE `dat_ve`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_dat_ve_ve_may_bay` (`id_ve`),
+  ADD KEY `fk_dat_ve_khach_hang` (`id_user`);
 
 --
 -- Chỉ mục cho bảng `dia_diem`
@@ -165,9 +131,16 @@ ALTER TABLE `dia_diem`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `khach_hang`
+-- Chỉ mục cho bảng `ghe_ngoi`
 --
-ALTER TABLE `khach_hang`
+ALTER TABLE `ghe_ngoi`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_ghe_ngoi_ve_may_bay` (`id_ve`);
+
+--
+-- Chỉ mục cho bảng `tai_khoan`
+--
+ALTER TABLE `tai_khoan`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -175,69 +148,77 @@ ALTER TABLE `khach_hang`
 --
 ALTER TABLE `ve_may_bay`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `ma_chuyen_bay` (`ma_chuyen_bay`),
-  ADD KEY `ma_khach_hang` (`ma_khach_hang`);
+  ADD KEY `fk_ve_may_bay_chuyen_bay` (`id_chuyen_bay`);
 
 --
 -- AUTO_INCREMENT cho các bảng đã đổ
 --
 
 --
--- AUTO_INCREMENT cho bảng `cho_ngoi`
---
-ALTER TABLE `cho_ngoi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
 -- AUTO_INCREMENT cho bảng `chuyen_bay`
 --
 ALTER TABLE `chuyen_bay`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=204;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT cho bảng `dat_ve`
+--
+ALTER TABLE `dat_ve`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT cho bảng `dia_diem`
 --
 ALTER TABLE `dia_diem`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=304;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT cho bảng `khach_hang`
+-- AUTO_INCREMENT cho bảng `ghe_ngoi`
 --
-ALTER TABLE `khach_hang`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=104;
+ALTER TABLE `ghe_ngoi`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT cho bảng `tai_khoan`
+--
+ALTER TABLE `tai_khoan`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT cho bảng `ve_may_bay`
 --
 ALTER TABLE `ve_may_bay`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Các ràng buộc cho các bảng đã đổ
 --
 
 --
--- Các ràng buộc cho bảng `cho_ngoi`
---
-ALTER TABLE `cho_ngoi`
-  ADD CONSTRAINT `cho_ngoi_ibfk_1` FOREIGN KEY (`ma_chuyen_bay`) REFERENCES `chuyen_bay` (`id`),
-  ADD CONSTRAINT `cho_ngoi_ibfk_2` FOREIGN KEY (`ma_khach_hang`) REFERENCES `khach_hang` (`id`),
-  ADD CONSTRAINT `cho_ngoi_ibfk_3` FOREIGN KEY (`ma_chuyen_bay`) REFERENCES `chuyen_bay` (`id`),
-  ADD CONSTRAINT `cho_ngoi_ibfk_4` FOREIGN KEY (`ma_khach_hang`) REFERENCES `khach_hang` (`id`);
-
---
 -- Các ràng buộc cho bảng `chuyen_bay`
 --
 ALTER TABLE `chuyen_bay`
-  ADD CONSTRAINT `chuyen_bay_ibfk_1` FOREIGN KEY (`id_diem_di`) REFERENCES `dia_diem` (`id`),
-  ADD CONSTRAINT `chuyen_bay_ibfk_2` FOREIGN KEY (`id_diem_den`) REFERENCES `dia_diem` (`id`);
+  ADD CONSTRAINT `fk_chuyen_bay_san_bay_den` FOREIGN KEY (`id_diemDen`) REFERENCES `dia_diem` (`id`),
+  ADD CONSTRAINT `fk_chuyen_bay_san_bay_di` FOREIGN KEY (`id_diemDi`) REFERENCES `dia_diem` (`id`);
+
+--
+-- Các ràng buộc cho bảng `dat_ve`
+--
+ALTER TABLE `dat_ve`
+  ADD CONSTRAINT `fk_dat_ve_khach_hang` FOREIGN KEY (`id_user`) REFERENCES `tai_khoan` (`id`),
+  ADD CONSTRAINT `fk_dat_ve_ve_may_bay` FOREIGN KEY (`id_ve`) REFERENCES `ve_may_bay` (`id`);
+
+--
+-- Các ràng buộc cho bảng `ghe_ngoi`
+--
+ALTER TABLE `ghe_ngoi`
+  ADD CONSTRAINT `fk_ghe_ngoi_ve_may_bay` FOREIGN KEY (`id_ve`) REFERENCES `ve_may_bay` (`id`);
 
 --
 -- Các ràng buộc cho bảng `ve_may_bay`
 --
 ALTER TABLE `ve_may_bay`
-  ADD CONSTRAINT `ve_may_bay_ibfk_1` FOREIGN KEY (`ma_chuyen_bay`) REFERENCES `chuyen_bay` (`id`),
-  ADD CONSTRAINT `ve_may_bay_ibfk_2` FOREIGN KEY (`ma_khach_hang`) REFERENCES `khach_hang` (`id`);
+  ADD CONSTRAINT `fk_ve_may_bay_chuyen_bay` FOREIGN KEY (`id_chuyen_bay`) REFERENCES `chuyen_bay` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
