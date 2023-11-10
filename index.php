@@ -9,8 +9,8 @@
             case 'datve':
                 include 'view/datve/formdatve.php';
                 break;
-            case 'datvetc':
-                include 'view/datve/datvethanhcong.php';
+            case 'hoadon':
+                include 'view/datve/hoadon.php';
                 break;
             case 'dangnhap':
                 include 'view/login/dangnhap.php';

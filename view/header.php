@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/styles.css">
-    <title>Bán Vé Máy Bay</title>
+    <title>Dự án 1</title>
 </head>
 <body onload="run()">         
     <div class="container">
@@ -21,3 +21,5 @@
                 <i class="fa-solid fa-magnifying-glass"></i>
             </div>
         </div>
+
+        

@@ -42,15 +42,6 @@
                                 <label>DEPART</label>
                                 <input type="date" class="from">
                             </div>
-
-                            <div class="box">
-                                <label>TICKET</label>
-                                <select name="" id="">
-                                    <option value="0">Loại vé</option>
-                                    <option value="1">Phổ thông</option>
-                                    <option value="2">Thương gia</option>
-                                </select>
-                            </div>
                             <input type="submit" value="Search" class="btn-search">
                     </form>
                     <div class="tikets-buy">
@@ -61,7 +52,6 @@
                                     <h3>Hà Nội (HAN) đến TP.Hồ Chí Minh (SGN)</h3>
                                     <p class="date">Ngày đi: 24/03/2023</p>
                                 </div>
-                                <p class="price">999,000 VND</p>
                                 <a href="index.php?act=datve" class="btn-buy">Đặt Vé</a>
                             </div>
                             <div class="item">
@@ -70,7 +60,6 @@
                                     <h3>TP.Hồ Chí Minh (SGN) đến Hà Nội (HAN)</h3>
                                     <p class="date">Ngày đi: 23/03/2023</p>
                                 </div>
-                                <p class="price">888,000 VND</p>
                                 <a href="index.php?act=datve" class="btn-buy">Đặt Vé</a>
                             </div>
                             <div class="item">
@@ -79,7 +68,6 @@
                                     <h3>TP.Hồ Chí Minh (SGN) đến Hà Nội (HAN)</h3>
                                     <p class="date">Ngày đi: 25/03/2023</p>
                                 </div>
-                                <p class="price">777,000 VND</p>
                                 <a href="index.php?act=datve" class="btn-buy">Đặt Vé</a>
                             </div>
                             <div class="item">
@@ -88,7 +76,6 @@
                                     <h3>TP.Hồ Chí Minh (SGN) đến Đà Nẵng (DAD)</h3>
                                     <p class="date">Ngày đi: 26/03/2023</p>
                                 </div>
-                                <p class="price">666,000 VND</p>
                                 <a href="index.php?act=datve" class="btn-buy">Đặt Vé</a>
                             </div>
                         </div>
@@ -99,7 +86,6 @@
                                     <h3>TP.Hồ Chí Minh (SGN) đến Đà Lạt (DLI)</h3>
                                     <p class="date">Ngày đi: 27/03/2023</p>
                                 </div>
-                                <p class="price">555,000 VND</p>
                                 <a href="index.php?act=datve" class="btn-buy">Đặt Vé</a>
                             </div>
                             <div class="item">
@@ -108,7 +94,6 @@
                                     <h3>TP.Hồ Chí Minh đến Quy Nhơn</h3>
                                     <p class="date">Ngày đi: 28/03/2023</p>
                                 </div>
-                                <p class="price">444,000 VND</p>
                                 <a href="index.php?act=datve" class="btn-buy">Đặt Vé</a>
                             </div>
                             <div class="item">
@@ -117,7 +102,6 @@
                                     <h3>Nha Trang (CXR) đến Hải Phòng (HPH) </h3>
                                     <p class="date">Ngày đi: 29/03/2023</p>
                                 </div>
-                                <p class="price">333,000 VND</p>
                                 <a href="index.php?act=datve" class="btn-buy">Đặt Vé</a>
                             </div>
                             <div class="item">
@@ -126,7 +110,6 @@
                                     <h3>Hà Nội (HAN) đến Côn Đảo (VCS)</h3>
                                     <p class="date">Ngày đi: 30/03/2023</p>
                                 </div>
-                                <p class="price">222,000 VND</p>
                                 <a href="index.php?act=datve" class="btn-buy">Đặt Vé</a>
                             </div>
                         </div>

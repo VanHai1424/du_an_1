@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+:root {
+    --blue: #104fa8;
+}
+
 html {
     scroll-behavior: smooth;
 }
@@ -117,10 +121,12 @@ body {
 }
 
 .form-ticket {
-    padding: 60px 0;
+    padding: 60px 0 20px;
     box-shadow: 0 0 8px #CCD;
     margin: 50px 0 0;
 }
+
+
 
 .tickets-header,
 .form-ticket__header,
@@ -131,6 +137,10 @@ body {
     color: rgb(24, 24, 24);
     text-transform: uppercase;
     font-weight: 700;
+}
+
+.form-ticket__header {
+    color: var(--blue);
 }
 
 .info-content {
@@ -190,17 +200,25 @@ body {
 
 .form-ticket__button {
     text-align: right;
-    margin: 30px 242px 0 0;
+    margin: 30px 206px 0 0;
 }
 
+.bill_submit {
+    margin: 10px 0;
+}
+
+.bill_submit,
 .form-ticket__button input {
     padding: 12px;
     width: 120px;
     border: 1px solid #ccc;
     border-radius: 30px;
     cursor: pointer;
+    font-weight: 700;
+    letter-spacing: 1px;
 }
 
+.bill_submit:hover ,
 .form-ticket__button input:hover {
     color: #fff;
     background-color: #4189e0;
@@ -291,7 +309,7 @@ ul.footer-list {
 }
 
 .tickets-form select {
-    width: 180px;
+    width: 100%;
     background-color: #fff;
 }
 
@@ -389,20 +407,12 @@ h3 {
     color: #7c7c7c;
 }
 
-.content .price {
-    color: #f44336;
-    font-size: 22px;
-    font-weight: 700;
-    text-align: right;
-    margin-top: 30px;
-    padding: 10px 15px;
-}
 
 .btn-buy {
     display: block;
     width: 90%;
     padding: 10px;
-    margin: 0 auto 20px;
+    margin: 40px auto 20px;
     background-color: #0d305c;
     color: white;
     font-size: 18px;
@@ -548,19 +558,34 @@ h3 {
     background-color: #fff;
 }
 
-.form-ticket__slot {
-    width: 50%;
+.form-ticket__select-slot {
+    margin: 30px 0;
+}
+
+.form-ticket__slot-tg,
+.form-ticket__slot-pt {
+    width: 55%;
     margin: 0 auto;
-    display: flex;
+    display: none;
     flex-wrap: wrap;
     gap: 30px;
 }
 
-.form-ticket__slot input[type="radio"] {
+.form-ticket__slot-tg {
+    display: flex;
+}
+
+.form-ticket__slot-tg {
+    width: 40%;
+}
+
+.form-ticket__slot-tg input[type="radio"],
+.form-ticket__slot-pt input[type="radio"] {
     display: none;
 }
 
-.form-ticket__slot label {
+.form-ticket__slot-tg label,
+.form-ticket__slot-pt label {
     position: relative;
     color: #4189e0;
     font-family: "Poppins", sans-serif;
@@ -571,58 +596,64 @@ h3 {
     border: 3px solid #4189e0;
     padding: 10px 20px;
     border-radius: 0.5em;
-    width: 100px; 
+    width: 100px;
 }
 
-.form-ticket__slot label:before {
+.form-ticket__slot-tg label::before,
+.form-ticket__slot-pt label:before {
     content: "";
     height: 20px;
-    width: 20px; 
+    width: 20px;
     border: 3px solid #4189e0;
     border-radius: 50%;
 }
 
-.form-ticket__slot input[type="radio"]:checked+label:before {
+.form-ticket__slot-tg input[type="radio"]:checked+label:before,
+.form-ticket__slot-pt input[type="radio"]:checked+label:before {
     height: 20px;
-    width: 20px; 
+    width: 20px;
     border: 3px solid #fff;
     background-color: #4189e0;
 }
 
-.form-ticket__slot input[type="radio"]:checked+label {
+.form-ticket__slot-tg input[type="radio"]:checked+label,
+.form-ticket__slot-pt input[type="radio"]:checked+label {
     background-color: #4189e0;
     color: #ffffff;
 }
 
-.tittle-slot {
-    margin: 20px 0;
-}
-
-.form-ticket__slot input[type="radio"]:disabled + label {
-    opacity: 0.5; 
-    pointer-events: none; 
+.form-ticket__slot-tg input[type="radio"]:disabled+label,
+.form-ticket__slot-pt input[type="radio"]:disabled+label {
+    opacity: 0.5;
+    pointer-events: none;
     border: 3px solid #ccc;
     background-color: #f0f0f0;
     color: #888;
 }
 
-.form-ticket__slot input[type="radio"]:disabled + label::before {
+.form-ticket__slot-tg input[type="radio"]:disabled+label::before,
+.form-ticket__slot-pt input[type="radio"]:disabled+label::before {
     border-color: #ccc;
+}
+
+
+.tittle-slot {
+    margin: 20px 0;
 }
 
 .bill {
     width: 900px;
     box-shadow: 0 0 8px #ccc;
-    padding: 0 0 10px 0;
+    padding: 10px;
     font-size: 18px;
     font-weight: 700;
     line-height: 30px;
 }
 
 .bill__title {
-    color: #fff;
     text-align: center;
-    line-height: 50px;
+    line-height: 70px;
+    letter-spacing: 2px;
 }
 
 .bill .info {
@@ -644,11 +675,86 @@ h3 {
     margin: 0 10px;
 }
 
-.header-success {
+.bill__header {
     width: 100%;
-    height: 150px;
-    background-color: #51a851;
+    height: 70px;
     display: flex;
     justify-content: center;
     align-items: center;
+    border-bottom: 1px solid #ccc;
+}
+
+/* CSS chọn ghế */
+
+.ticket-form {
+    padding: 40px !important;
+    border-radius: 10px;
+    background-color: #fff;
+}
+
+.ticket-form fieldset {
+    width: 180px;
+    margin: 0 auto;
+    padding: 10px;
+    border-color: rgb(175 175 255);
+    border-radius: 10px;
+}
+
+.ticket-form fieldset legend {
+    color: var(--blue);
+    padding-bottom: 8px;
+    text-transform: uppercase;
+}
+
+.ticket-form fieldset .radio-block {
+    position: relative;
+    display: flex;
+    min-width: 280px;
+    border: dashed var(--blue) 1px;
+    border-radius: 20px;
+    background-color: #f7f5f3;
+    margin-top: 10px;
+}
+
+.ticket-form fieldset .selected {
+    position: absolute;
+    top: 1px;
+    left: 1px;
+    width: calc(50% - 1px);
+    height: calc(100% - 2px);
+    border-radius: 20px;
+    transition: transform 0.2s;
+    background-color: var(--blue);
+}
+
+.ticket-form fieldset label {
+    position: relative;
+    z-index: 100;
+    width: 50%;
+    padding: 18px !important;
+    transition: color 0.2s;
+    text-align: center;
+    cursor: pointer;
+}
+
+.ticket-form fieldset input[type="radio"]:checked+label {
+    color: #fff;
+}
+
+.ticket-form fieldset input[type="radio"]:checked+.off-label+.selected {
+    transform: translateX(100%);
+}
+
+
+.ticket-form input[type="radio"] {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    margin: -1px !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    clip: rect(1px, 1px, 1px, 1px) !important;
+    border: 0 !important;
+    clip-path: inset(50%) !important;
+    white-space: nowrap !important;
 }
