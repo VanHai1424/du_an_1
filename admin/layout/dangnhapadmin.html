@@ -20,7 +20,7 @@
                     </div>
                     <div class="login-admin__row">
                         <label for="">Mật khẩu</label>
-                        <input type="text" name="" id="">
+                        <input type="password" name="" id="">
                     </div>
                     <input type="submit" value="Đăng Nhập">
                 </form>
