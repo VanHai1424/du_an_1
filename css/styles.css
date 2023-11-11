@@ -575,10 +575,6 @@ h3 {
     display: flex;
 }
 
-.form-ticket__slot-tg {
-    width: 40%;
-}
-
 .form-ticket__slot-tg input[type="radio"],
 .form-ticket__slot-pt input[type="radio"] {
     display: none;
