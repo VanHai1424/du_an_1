@@ -9,7 +9,7 @@
             </div>
             <div class="row-input">
                 <i class="fa-solid fa-lock"></i>
-                <input placeholder="Mật khẩu" type="text" class="o-input">
+                <input placeholder="Mật khẩu" type="password" class="o-input">
                 <p class="content2-text"></p>
             </div>
             <div class="row-input">
