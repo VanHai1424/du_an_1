@@ -17,7 +17,7 @@
         </div>
         <div class="menu">
             <ul class="">
-                <li><a href="index.php">Trang chủ</a></li>
+                <li><a href="index.php?act=home">Trang chủ</a></li>
                 <li><a href="">Địa điểm</a></li>
                 <li><a href="">Chuyến bay</a></li>
                 <li><a href="">Chỗ ngồi</a></li>
