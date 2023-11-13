@@ -13,16 +13,17 @@
         <div class="login-body">
             <div class="login-admin">
                 <h1>ADMIN</h1>
-                <form action="" class="login-admin__form" method="POST">
+                <form action="index.php?act=dangnhap" class="login-admin__form" method="POST">
                     <div class="login-admin__row">
                         <label for="">Tên đăng nhập</label>
-                        <input type="text" name="" id=""> 
+                        <input type="text" name="user" id=""> 
                     </div>
                     <div class="login-admin__row">
                         <label for="">Mật khẩu</label>
-                        <input type="password" name="" id="">
+                        <input type="password" name="pass" id="">
                     </div>
-                    <input type="submit" value="Đăng Nhập">
+                    <input type="submit" name="submit" value="Đăng Nhập"> <br>
+                    <p style="color: red; margin: -15px;"><?= (isset($loginMess) && $loginMess!= "") ? $loginMess : '';?></p>
                 </form>
             </div>
         </div>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 11, 2023 lúc 06:33 AM
+-- Thời gian đã tạo: Th10 12, 2023 lúc 08:24 AM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.2.4
 
@@ -88,6 +88,7 @@ CREATE TABLE `tai_khoan` (
   `id` int(11) NOT NULL,
   `user` varchar(255) NOT NULL,
   `pass` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
   `role` tinyint(2) NOT NULL COMMENT '0. admin, 1.nguoi dung'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
