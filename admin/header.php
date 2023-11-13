@@ -19,8 +19,8 @@
             <ul class="">
                 <li><a href="index.php?act=home">Trang chủ</a></li>
                 <li><a href="index.php?act=listdd">Địa điểm</a></li>
-                <li><a href="">Chuyến bay</a></li>
-                <li><a href="">Vé máy bay</a></li>
+                <li><a href="index.php?act=listcb">Chuyến bay</a></li>
+                <li><a href="index.php?act=listvmb">Vé máy bay</a></li>
                 <li><a href="index.php?act=listtk">Tài khoản</a></li>
                 <li><a href="">Thống kê</a></li>
             </ul>

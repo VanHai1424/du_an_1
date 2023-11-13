@@ -2,6 +2,7 @@
     include "../model/pdo.php";
     include "../model/taikhoan.php";
     include "../model/diadiem.php";
+    include "../model/chuyenbay.php";
     if(isset($_GET['act']) && ($_GET['act'] != '')) {
         $act = $_GET['act'];
         switch($act) {
@@ -9,6 +10,7 @@
                 include 'header.php';
                 include 'home.php';
                 break;
+
             case 'dangnhap':
                 if(isset($_POST['submit'])) {
                     $user = $_POST['user'];
@@ -32,6 +34,7 @@
                 $listTaiKhoan = loadall_taikhoan();
                 include 'taikhoan/list.php';
                 break;
+
             case 'addtk':
                 include 'header.php';
                 if(isset($_POST['submit'])) {
@@ -44,6 +47,7 @@
                 }
                 include 'taikhoan/add.php';
                 break;
+
             case "updatetk":
                 include 'header.php';
                 if(isset($_GET['id']) && ($_GET['id'])){
@@ -66,6 +70,7 @@
                 $listTaiKhoan = loadall_taikhoan();
                 include "taikhoan/list.php";
                 break;
+
             case 'deltk':
                 include 'header.php';
                 if(isset($_GET['id']) && ($_GET['id'])){
@@ -81,6 +86,7 @@
                 $listDiaDiem = loadall_diadiem();
                 include 'diadiem/list.php';
                 break; 
+                
             case 'adddd':
                 include 'header.php';   
                 if(isset($_POST['submit'])) {
@@ -95,6 +101,7 @@
                 }
                 include 'diadiem/add.php';
                 break;
+
             case "updatedd":
                 include 'header.php';
                 if(isset($_GET['id']) && ($_GET['id'])){
@@ -121,6 +128,7 @@
                 $listDiaDiem = loadall_diadiem();
                 include "diadiem/list.php";
                 break;
+
             case 'deldd':
                 include 'header.php';
                 if(isset($_GET['id']) && ($_GET['id'])){
@@ -130,6 +138,66 @@
                 include 'diadiem/list.php';
                 break;    
 
+            // Chuyen bay
+            case 'listcb':
+                include 'header.php';
+                $listChuyenBay = loadadll_chuyenbay();
+                include 'chuyenbay/list.php';
+                break; 
+
+            case 'addcb':
+                include 'header.php';   
+                $listDiaDiem = loadall_diadiem();
+                if(isset($_POST['submit'])) {
+                    $name = $_POST['name'];
+                    $id_diemDi = $_POST['diemdi'];
+                    $id_diemDen = $_POST['diemden'];
+                    $ngay_kh = $_POST['ngay_kh'];
+                    $thoi_gian_di = $_POST['thoi_gian_di'];
+                    $thoi_gian_den = $_POST['thoi_gian_den'];
+                    $trang_thai = $_POST['trang_thai'];
+                    insert_chuyenbay($name, $id_diemDi, $id_diemDen, $ngay_kh, $thoi_gian_di, $thoi_gian_den, $trang_thai);
+                    $thongBao = "Thêm chuyến bay thành công";                    
+                }
+                include 'chuyenbay/add.php';
+                break;
+
+            case "updatecb":
+                include 'header.php';
+                $listDiaDiem = loadall_diadiem();
+                if(isset($_GET['id']) && ($_GET['id'])){
+                    $cb = loadone_chuyenbay($_GET['id']);
+                }
+                include "chuyenbay/update.php";
+                break;
+            
+            case "suacb":
+                include 'header.php';
+                $listDiaDiem = loadall_diadiem();
+                if(isset($_POST['capnhat']) && ($_POST['capnhat'])){
+                    $id = $_POST['id'];
+                    $name = $_POST['name'];
+                    $id_diemDi = $_POST['diemdi'];
+                    $id_diemDen = $_POST['diemden'];
+                    $ngay_kh = $_POST['ngay_kh'];
+                    $thoi_gian_di = $_POST['thoi_gian_di'];
+                    $thoi_gian_den = $_POST['thoi_gian_den'];
+                    $trang_thai = $_POST['trang_thai'];
+                    update_chuyenbay($name, $id_diemDi, $id_diemDen, $ngay_kh, $thoi_gian_di, $thoi_gian_den, $trang_thai, $id);
+                    $thongBao = 'Cap nhat thanh cong!';
+                }
+                $listChuyenBay = loadadll_chuyenbay();
+                include 'chuyenbay/list.php';
+                break;
+
+            case 'delcb':
+                include 'header.php';
+                if(isset($_GET['id']) && ($_GET['id'])){
+                    delete_chuyenbay($_GET['id']);
+                }
+                $listChuyenBay = loadadll_chuyenbay();
+                include 'chuyenbay/list.php';
+                break;     
 
             // Bieu do
             case 'bieudo':
