@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 13, 2023 lúc 05:20 AM
+-- Thời gian đã tạo: Th10 13, 2023 lúc 09:59 AM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.2.4
 
@@ -38,6 +38,15 @@ CREATE TABLE `chuyen_bay` (
   `trang_thai` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Đang đổ dữ liệu cho bảng `chuyen_bay`
+--
+
+INSERT INTO `chuyen_bay` (`id`, `ten_may_bay`, `id_diemDi`, `id_diemDen`, `ngay_khoi_hanh`, `thoi_gian_di`, `thoi_gian_den`, `trang_thai`) VALUES
+(7, 'a1', 7, 8, '2023-11-13', '2023-11-13 07:08:52', '2023-11-16 13:08:52', 'chua bay'),
+(10, 'a3', 7, 8, '2023-11-12', '2023-11-12 14:51:00', '2023-11-12 15:51:00', 'da bay'),
+(13, 'abc1', 7, 10, '2023-11-22', '2023-11-22 15:55:00', '2023-11-22 17:00:00', 'chua bay ');
+
 -- --------------------------------------------------------
 
 --
@@ -71,7 +80,8 @@ CREATE TABLE `dia_diem` (
 
 INSERT INTO `dia_diem` (`id`, `ten`, `img`) VALUES
 (7, 'Hà Nội', 'hanoi.jpg'),
-(8, 'TP.Hồ Chí Minh', 'tphochiminh.jpg');
+(8, 'TP.Hồ Chí Minh', 'tphochiminh.jpg'),
+(10, 'Hải Phòng', 'haiphong.jpg');
 
 -- --------------------------------------------------------
 
@@ -175,7 +185,7 @@ ALTER TABLE `ve_may_bay`
 -- AUTO_INCREMENT cho bảng `chuyen_bay`
 --
 ALTER TABLE `chuyen_bay`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT cho bảng `dat_ve`
@@ -187,7 +197,7 @@ ALTER TABLE `dat_ve`
 -- AUTO_INCREMENT cho bảng `dia_diem`
 --
 ALTER TABLE `dia_diem`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT cho bảng `ghe_ngoi`
@@ -199,7 +209,7 @@ ALTER TABLE `ghe_ngoi`
 -- AUTO_INCREMENT cho bảng `tai_khoan`
 --
 ALTER TABLE `tai_khoan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT cho bảng `ve_may_bay`
