@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 12, 2023 lúc 08:24 AM
+-- Thời gian đã tạo: Th10 13, 2023 lúc 05:20 AM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.2.4
 
@@ -65,6 +65,14 @@ CREATE TABLE `dia_diem` (
   `img` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Đang đổ dữ liệu cho bảng `dia_diem`
+--
+
+INSERT INTO `dia_diem` (`id`, `ten`, `img`) VALUES
+(7, 'Hà Nội', 'hanoi.jpg'),
+(8, 'TP.Hồ Chí Minh', 'tphochiminh.jpg');
+
 -- --------------------------------------------------------
 
 --
@@ -91,6 +99,14 @@ CREATE TABLE `tai_khoan` (
   `email` varchar(255) NOT NULL,
   `role` tinyint(2) NOT NULL COMMENT '0. admin, 1.nguoi dung'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `tai_khoan`
+--
+
+INSERT INTO `tai_khoan` (`id`, `user`, `pass`, `email`, `role`) VALUES
+(4, 'admin', '123', 'daovanhai1424@gmail.com', 0),
+(5, 'vanhai', '123', 'daovanhai1424@gmail.com', 1);
 
 -- --------------------------------------------------------
 
@@ -171,7 +187,7 @@ ALTER TABLE `dat_ve`
 -- AUTO_INCREMENT cho bảng `dia_diem`
 --
 ALTER TABLE `dia_diem`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT cho bảng `ghe_ngoi`
@@ -183,7 +199,7 @@ ALTER TABLE `ghe_ngoi`
 -- AUTO_INCREMENT cho bảng `tai_khoan`
 --
 ALTER TABLE `tai_khoan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT cho bảng `ve_may_bay`
