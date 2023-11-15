@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 13, 2023 lúc 09:59 AM
+-- Thời gian đã tạo: Th10 15, 2023 lúc 07:35 AM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.2.4
 
@@ -43,9 +43,13 @@ CREATE TABLE `chuyen_bay` (
 --
 
 INSERT INTO `chuyen_bay` (`id`, `ten_may_bay`, `id_diemDi`, `id_diemDen`, `ngay_khoi_hanh`, `thoi_gian_di`, `thoi_gian_den`, `trang_thai`) VALUES
-(7, 'a1', 7, 8, '2023-11-13', '2023-11-13 07:08:52', '2023-11-16 13:08:52', 'chua bay'),
-(10, 'a3', 7, 8, '2023-11-12', '2023-11-12 14:51:00', '2023-11-12 15:51:00', 'da bay'),
-(13, 'abc1', 7, 10, '2023-11-22', '2023-11-22 15:55:00', '2023-11-22 17:00:00', 'chua bay ');
+(7, 'A1', 7, 8, '2023-11-19', '2023-11-19 07:08:52', '2023-11-19 11:08:52', 'chua bay'),
+(15, 'A2', 7, 10, '2023-11-30', '2023-11-30 10:34:00', '2023-11-30 00:34:00', 'chua bay '),
+(16, 'A3', 10, 11, '2023-11-28', '2023-11-28 10:35:00', '2023-11-28 12:35:00', 'chua bay '),
+(17, 'A4', 14, 12, '2023-11-27', '2023-11-27 03:35:00', '2023-11-27 05:35:00', 'chua bay '),
+(18, 'A5', 8, 14, '2023-11-25', '2023-11-25 19:00:00', '2023-11-25 21:00:00', 'chua bay '),
+(19, 'A6', 12, 13, '2023-12-02', '2023-12-02 03:00:00', '2023-12-02 04:50:00', 'chua bay '),
+(20, 'B1', 13, 7, '2023-12-10', '2023-12-10 10:04:00', '2023-12-10 12:00:00', 'chua bay');
 
 -- --------------------------------------------------------
 
@@ -79,9 +83,13 @@ CREATE TABLE `dia_diem` (
 --
 
 INSERT INTO `dia_diem` (`id`, `ten`, `img`) VALUES
-(7, 'Hà Nội', 'hanoi.jpg'),
-(8, 'TP.Hồ Chí Minh', 'tphochiminh.jpg'),
-(10, 'Hải Phòng', 'haiphong.jpg');
+(7, 'Hà Nội (HAN)', 'hanoi.jpg'),
+(8, 'TP.Hồ Chí Minh (SGN)', 'tphochiminh.jpg'),
+(10, 'Hải Phòng (HPH)', 'haiphong.jpg'),
+(11, 'Vinh (VII)', 'vinh.jpg'),
+(12, 'Thanh Hóa (THD)', 'thanhhoa.jpg'),
+(13, 'Nha Trang (CXR)', 'nhatrang.jpg'),
+(14, 'Huế (HUI)', 'hue.jpg');
 
 -- --------------------------------------------------------
 
@@ -185,7 +193,7 @@ ALTER TABLE `ve_may_bay`
 -- AUTO_INCREMENT cho bảng `chuyen_bay`
 --
 ALTER TABLE `chuyen_bay`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT cho bảng `dat_ve`
@@ -197,7 +205,7 @@ ALTER TABLE `dat_ve`
 -- AUTO_INCREMENT cho bảng `dia_diem`
 --
 ALTER TABLE `dia_diem`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT cho bảng `ghe_ngoi`

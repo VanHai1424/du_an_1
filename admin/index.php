@@ -141,7 +141,7 @@
             // Chuyen bay
             case 'listcb':
                 include 'header.php';
-                $listChuyenBay = loadadll_chuyenbay();
+                $listChuyenBay = loadall_chuyenbay('admin');
                 include 'chuyenbay/list.php';
                 break; 
 
@@ -186,7 +186,7 @@
                     update_chuyenbay($name, $id_diemDi, $id_diemDen, $ngay_kh, $thoi_gian_di, $thoi_gian_den, $trang_thai, $id);
                     $thongBao = 'Cap nhat thanh cong!';
                 }
-                $listChuyenBay = loadadll_chuyenbay();
+                $listChuyenBay = loadall_chuyenbay('admin');
                 include 'chuyenbay/list.php';
                 break;
 
@@ -195,7 +195,7 @@
                 if(isset($_GET['id']) && ($_GET['id'])){
                     delete_chuyenbay($_GET['id']);
                 }
-                $listChuyenBay = loadadll_chuyenbay();
+                $listChuyenBay = loadall_chuyenbay('admin');
                 include 'chuyenbay/list.php';
                 break;     
 

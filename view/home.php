@@ -19,99 +19,57 @@
             <!-- Tickets -->
             <div id="tickets" class="tickets">
                 <div class="tickets-content">
-                    <form action="" class="tickets-form">
+                    <form action="index.php?act=search" class="tickets-form" method="POST">
                             <div class="box">
                                 <label>FROM</label>
-                                <select name="" id="">
-                                    <option value="0">Địa Điểm</option>
-                                    <option value="1">Hà Nội</option>
-                                    <option value="2">TP.Hồ Chí Minh</option>
-                                    <option value="3">Đà Nẵng</option>
+                                <select name="diemdi" id="" class="">
+                                    <?php 
+                                        foreach ($listDiaDiem as $value) {
+                                            extract($value);
+                                            echo '<option value="'.$id.'">'.$ten.'</option>';
+                                        }
+                                    ?>
                                 </select>
                             </div>
                             <div class="box">
                                 <label>TO</label>
-                                <select name="" id="">
-                                    <option value="0">Địa Điểm</option>
-                                    <option value="1">Hà Nội</option>                                               
-                                    <option value="2">TP.Hồ Chí Minh</option>
-                                    <option value="3">Đà Nẵng</option>
+                                <select name="diemden" id="" class="">
+                                    <?php 
+                                        foreach ($listDiaDiem as $value) {
+                                            extract($value);
+                                            echo '<option value="'.$id.'">'.$ten.'</option>';
+                                        }
+                                    ?>
                                 </select>
                             </div>
                             <div class="box">
                                 <label>DEPART</label>
-                                <input type="date" class="from">
+                                <input name="ngaydi" type="date" class="from" min="<?= date('Y-m-d');?>">
                             </div>
-                            <input type="submit" value="Search" class="btn-search">
+                            <input type="submit" name="search" value="Search" class="btn-search">
                     </form>
                     <div class="tikets-buy">
                         <div class="row-item">
+                            <?php 
+                                $i = 1;
+                                foreach ($listCbNew as $value) {
+                                    extract($value);
+                            ?>
                             <div class="item">
-                                <img src="./img/anh1.png" alt="">
+                                <img src="upload/<?= $img_den ?>" alt="ảnh lỗi">
                                 <div class="item-text">
-                                    <h3>Hà Nội (HAN) đến TP.Hồ Chí Minh (SGN)</h3>
-                                    <p class="date">Ngày đi: 24/03/2023</p>
+                                    <h3><?= $diem_di ?> đến <?= $diem_den ?></h3>
+                                    <p class="date">Ngày đi: <?= date('d/m/Y', strtotime($ngay_khoi_hanh)) ?></p>
                                 </div>
-                                <a href="index.php?act=datve" class="btn-buy">Đặt Vé</a>
+                                <a href="<?= (isset($_SESSION['user']) ? "index.php?act=datve&id=$id" : "index.php?act=dangnhap") ?>" class="btn-buy">Đặt Vé</a>
                             </div>
-                            <div class="item">
-                                <img src="./img/anh4.png" alt="">
-                                <div class="item-text">
-                                    <h3>TP.Hồ Chí Minh (SGN) đến Hà Nội (HAN)</h3>
-                                    <p class="date">Ngày đi: 23/03/2023</p>
+                            <?php if ($i % 4 == 0) { ?>
                                 </div>
-                                <a href="index.php?act=datve" class="btn-buy">Đặt Vé</a>
-                            </div>
-                            <div class="item">
-                                <img src="./img/anh2.png" alt="">
-                                <div class="item-text">
-                                    <h3>TP.Hồ Chí Minh (SGN) đến Hà Nội (HAN)</h3>
-                                    <p class="date">Ngày đi: 25/03/2023</p>
-                                </div>
-                                <a href="index.php?act=datve" class="btn-buy">Đặt Vé</a>
-                            </div>
-                            <div class="item">
-                                <img src="./img/anh3.png" alt="">
-                                <div class="item-text">
-                                    <h3>TP.Hồ Chí Minh (SGN) đến Đà Nẵng (DAD)</h3>
-                                    <p class="date">Ngày đi: 26/03/2023</p>
-                                </div>
-                                <a href="index.php?act=datve" class="btn-buy">Đặt Vé</a>
-                            </div>
-                        </div>
-                        <div class="row-item">
-                            <div class="item">
-                                <img src="./img/anh5.png" alt="">
-                                <div class="item-text">
-                                    <h3>TP.Hồ Chí Minh (SGN) đến Đà Lạt (DLI)</h3>
-                                    <p class="date">Ngày đi: 27/03/2023</p>
-                                </div>
-                                <a href="index.php?act=datve" class="btn-buy">Đặt Vé</a>
-                            </div>
-                            <div class="item">
-                                <img src="./img/anh7.png" alt="">
-                                <div class="item-text">
-                                    <h3>TP.Hồ Chí Minh đến Quy Nhơn</h3>
-                                    <p class="date">Ngày đi: 28/03/2023</p>
-                                </div>
-                                <a href="index.php?act=datve" class="btn-buy">Đặt Vé</a>
-                            </div>
-                            <div class="item">
-                                <img src="./img/anh6.png" alt="">
-                                <div class="item-text">
-                                    <h3>Nha Trang (CXR) đến Hải Phòng (HPH) </h3>
-                                    <p class="date">Ngày đi: 29/03/2023</p>
-                                </div>
-                                <a href="index.php?act=datve" class="btn-buy">Đặt Vé</a>
-                            </div>
-                            <div class="item">
-                                <img src="./img/anh8.png" alt="">
-                                <div class="item-text">
-                                    <h3>Hà Nội (HAN) đến Côn Đảo (VCS)</h3>
-                                    <p class="date">Ngày đi: 30/03/2023</p>
-                                </div>
-                                <a href="index.php?act=datve" class="btn-buy">Đặt Vé</a>
-                            </div>
+                                <div class="row-item">
+                            <?php }
+                                    $i++;
+                                } 
+                            ?>
                         </div>
                     </div>
                 </div>
