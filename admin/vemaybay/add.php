@@ -3,67 +3,39 @@
 </div>
 <div class="row-content">
     <h5 class=""></h5>
-    <form action="./index.php?act=addcb" method="post" enctype="multipart/form-data">
+    <form action="./index.php?act=addvmb" method="post" enctype="multipart/form-data">
         <div class="content-text">
-            <label for="">Tên máy bay</label>
+            <label for="">Giá vé</label>
         </div>
-        <input name="name" value="" class="" type="text">
+        <input name="giave" value="" class="" type="number">
         <br>
         <br>
         <div class="content-text">
-            <label for="">Điểm đi</label>
+            <label for="">Loại vé</label>
         </div>
-        <select name="diemdi" id="" class="">
-            <?php 
-                foreach ($listDiaDiem as $value) {
-                    extract($value);
-                    echo '<option value="'.$id.'">'.$ten.'</option>';
-                }
-            ?>
+        <select name="loaive" id="" class="">
+            <option value="1">Phổ thông</option>
+            <option value="2">Thương gia</option>
         </select>
         <br>
         <br>
         <div class="content-text">
-            <label for="">Điểm đến</label>
+            <label for="">ID chuyến bay</label>
         </div>
-        <select name="diemden" id="" class="">
+        <select name="idchuyenbay" id="" class="">
             <?php 
-                foreach ($listDiaDiem as $value) {
+                foreach ($listChuyenBay as $value) {
                     extract($value);
-                    echo '<option value="'.$id.'">'.$ten.'</option>';
+                    echo '<option value="'.$id.'">'.$id.'</option>';
                 }
             ?>
         </select>
-        <br>
-        <br>
-        <div class="content-text">
-            <label for="">Ngày khởi hành</label>
-        </div>
-        <input name="ngay_kh" value="" class="" type="date">
-        <br>
-        <br>
-        <div class="content-text">
-            <label for="">Thời gian đi</label>
-        </div>
-        <input name="thoi_gian_di" value="" class="" type="datetime-local">
-        <br>
-        <br>
-        <div class="content-text">
-            <label for="">Thời gian đến</label>
-        </div>
-        <input name="thoi_gian_den" value="" class="" type="datetime-local">
-        <br>
-        <br>
-        <div class="content-text">
-            <label for="">Trạng thái</label>
-        </div>
-        <input name="trang_thai" value="" class="" type="text">
         <br>
         <br>
         <div class="but">
             <input type="submit" name="submit" value="Thêm Mới" class="">
             <input type="reset" value="Nhập Lại" class="">
-            <a href="index.php?act=listcb" class=""><input type="button" value="Danh sách"></a>
+            <a href="index.php?act=listvmb" class=""><input type="button" value="Danh sách"></a>
 
         </div>
         <?= (isset($thongBao) && ($thongBao != "")) ? $thongBao : "" ?>

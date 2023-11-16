@@ -3,6 +3,7 @@
     include "../model/taikhoan.php";
     include "../model/diadiem.php";
     include "../model/chuyenbay.php";
+    include "../model/vemaybay.php";
     if(isset($_GET['act']) && ($_GET['act'] != '')) {
         $act = $_GET['act'];
         switch($act) {
@@ -198,6 +199,58 @@
                 $listChuyenBay = loadadll_chuyenbay();
                 include 'chuyenbay/list.php';
                 break;     
+
+            // vé máy bay
+            case 'listvmb':
+                include 'header.php';
+                $listVeMayBay = loadall_vemaybay();
+                include 'vemaybay/list.php';
+                break;
+
+            case 'addvmb':
+                include 'header.php';
+                $listChuyenBay = loadadll_chuyenbay();
+                if(isset($_POST['submit'])) {
+                    $gia_ve = $_POST['giave'];
+                    $loai_ve = $_POST['loaive'];
+                    $id_chuyen_bay = $_POST['idchuyenbay'];
+                    insert_vemaybay($gia_ve, $loai_ve, $id_chuyen_bay);
+                    $thongBao = "Thêm vé thành công";
+                }
+                include 'vemaybay/add.php';
+                break;
+
+            case "updatevmb":
+                include 'header.php';
+                $listChuyenBay = loadadll_chuyenbay();
+                if(isset($_GET['id']) && ($_GET['id'])){
+                    $vmb = loadone_vemaybay($_GET['id']);
+                }
+                include "vemaybay/update.php";
+                break;
+            
+            case "suavmb":
+                include 'header.php';
+                if(isset($_POST['capnhat']) && ($_POST['capnhat'])){
+                    $id = $_POST['id'];
+                    $user = $_POST['gia_ve'];
+                    $pass = $_POST['loai_ve'];
+                    $email = $_POST['id_chuyen_bay'];
+                    update_vemaybay($gia_ve, $loai_ve, $id_chuyen_bay,$id);
+                    $thongBao = 'Cap nhat thanh cong!';
+                }
+                $listVeMayBay = loadall_vemaybay();
+                include "vemaybay/list.php";
+                break;
+
+            case 'delvmb':
+                include 'header.php';
+                if(isset($_GET['id']) && ($_GET['id'])){
+                    delete_vemaybay($_GET['id']);
+                }
+                $listVeMayBay = loadall_vemaybay();
+                include "vemaybay/list.php";
+                break;
 
             // Bieu do
             case 'bieudo':
