@@ -1,8 +1,63 @@
 <?php 
-    function loadadll_chuyenbay() {
-        $sql = "SELECT * FROM `chuyen_bay` WHERE 1";
+    function loadall_chuyenbay($page) {
+        if($page == "admin") $sql = "SELECT * FROM chuyen_bay WHERE 1";
+        else {
+            $sql = "SELECT cb.*,
+            dd_di.ten AS diem_di,
+            dd_den.ten AS diem_den,
+            dd_den.img AS img_den
+            FROM chuyen_bay cb
+            JOIN dia_diem dd_di ON cb.id_diemDi = dd_di.id
+            JOIN dia_diem dd_den ON cb.id_diemDen = dd_den.id
+            ORDER BY cb.ngay_khoi_hanh 
+            ";
+        }
+        $list = pdo_query($sql);
+        return $list;
+    }
+
+    function search_chuyenbay($from = "", $to = "", $depart = "") {
+        $sql = "SELECT cb.*, 
+                dd_di.ten AS diem_di, 
+                dd_den.ten AS diem_den, 
+                dd_den.img AS img_den 
+                FROM chuyen_bay cb 
+                JOIN dia_diem dd_di ON cb.id_diemDi = dd_di.id 
+                JOIN dia_diem dd_den ON cb.id_diemDen = dd_den.id 
+                WHERE 1";
+        
+        if (!empty($from)) {
+            $sql .= " AND cb.id_diemDi = $from";
+        }
+    
+        if (!empty($to)) {
+            $sql .= " AND cb.id_diemDen = $to";
+        }
+    
+        if (!empty($depart)) {
+            $sql .= " AND cb.ngay_khoi_hanh = '$depart'";
+        }
+    
+        $sql .= " ORDER BY cb.ngay_khoi_hanh";
+    
         $listChuyenBay = pdo_query($sql);
         return $listChuyenBay;
+    }
+    
+
+    function load_cb_home () {
+        $sql = "SELECT cb.*,
+        dd_di.ten AS diem_di,
+        dd_den.ten AS diem_den,
+        dd_den.img AS img_den
+        FROM chuyen_bay cb
+        JOIN dia_diem dd_di ON cb.id_diemDi = dd_di.id
+        JOIN dia_diem dd_den ON cb.id_diemDen = dd_den.id
+        ORDER BY cb.ngay_khoi_hanh 
+        LIMIT 8; 
+        ";
+        $list = pdo_query($sql);
+        return $list;
     }
 
     function loadone_chuyenbay($id) {

@@ -166,6 +166,7 @@ body {
 }
 
 .tickets {
+    min-height: 600px;
     text-align: center;
     padding: 1px 0 60px;
     background-color: #ffefef;
@@ -369,7 +370,7 @@ select {
     width: 1145px;
     margin: 0 auto;
     display: flex;
-    justify-content: space-between;
+    gap: 30px;
 }
 
 .row-item:first-child {
