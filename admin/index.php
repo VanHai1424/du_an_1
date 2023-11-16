@@ -174,7 +174,6 @@
             
             case "suacb":
                 include 'header.php';
-                $listDiaDiem = loadall_diadiem();
                 if(isset($_POST['capnhat']) && ($_POST['capnhat'])){
                     $id = $_POST['id'];
                     $name = $_POST['name'];
@@ -209,7 +208,7 @@
 
             case 'addvmb':
                 include 'header.php';
-                $listChuyenBay = loadadll_chuyenbay();
+                $listChuyenBay = loadall_chuyenbay('admin');
                 if(isset($_POST['submit'])) {
                     $gia_ve = $_POST['giave'];
                     $loai_ve = $_POST['loaive'];
@@ -222,7 +221,7 @@
 
             case "updatevmb":
                 include 'header.php';
-                $listChuyenBay = loadadll_chuyenbay();
+                $listChuyenBay = loadall_chuyenbay('admin');
                 if(isset($_GET['id']) && ($_GET['id'])){
                     $vmb = loadone_vemaybay($_GET['id']);
                 }
@@ -233,10 +232,10 @@
                 include 'header.php';
                 if(isset($_POST['capnhat']) && ($_POST['capnhat'])){
                     $id = $_POST['id'];
-                    $user = $_POST['gia_ve'];
-                    $pass = $_POST['loai_ve'];
-                    $email = $_POST['id_chuyen_bay'];
-                    update_vemaybay($gia_ve, $loai_ve, $id_chuyen_bay,$id);
+                    $gia_ve = $_POST['giave'];
+                    $loai_ve = $_POST['loaive'];
+                    $id_chuyen_bay = $_POST['idchuyenbay'];
+                    update_vemaybay($gia_ve, $loai_ve, $id_chuyen_bay, $id);
                     $thongBao = 'Cap nhat thanh cong!';
                 }
                 $listVeMayBay = loadall_vemaybay();

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 15, 2023 lúc 07:35 AM
+-- Thời gian đã tạo: Th10 16, 2023 lúc 03:54 PM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.2.4
 
@@ -49,7 +49,7 @@ INSERT INTO `chuyen_bay` (`id`, `ten_may_bay`, `id_diemDi`, `id_diemDen`, `ngay_
 (17, 'A4', 14, 12, '2023-11-27', '2023-11-27 03:35:00', '2023-11-27 05:35:00', 'chua bay '),
 (18, 'A5', 8, 14, '2023-11-25', '2023-11-25 19:00:00', '2023-11-25 21:00:00', 'chua bay '),
 (19, 'A6', 12, 13, '2023-12-02', '2023-12-02 03:00:00', '2023-12-02 04:50:00', 'chua bay '),
-(20, 'B1', 13, 7, '2023-12-10', '2023-12-10 10:04:00', '2023-12-10 12:00:00', 'chua bay');
+(20, 'B1', 13, 7, '2023-12-10', '2023-12-10 10:00:00', '2023-12-10 12:00:00', 'chua bay');
 
 -- --------------------------------------------------------
 
@@ -140,6 +140,26 @@ CREATE TABLE `ve_may_bay` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
+-- Đang đổ dữ liệu cho bảng `ve_may_bay`
+--
+
+INSERT INTO `ve_may_bay` (`id`, `gia_ve`, `loai_ve`, `id_chuyen_bay`) VALUES
+(10, 130000, 1, 7),
+(11, 140000, 2, 7),
+(13, 10000, 1, 15),
+(14, 20000, 2, 15),
+(15, 30000, 1, 16),
+(16, 40000, 2, 16),
+(17, 50000, 1, 17),
+(18, 60000, 2, 17),
+(19, 70000, 1, 18),
+(20, 80000, 2, 18),
+(21, 90000, 1, 19),
+(22, 100000, 2, 19),
+(23, 110000, 1, 20),
+(24, 120000, 2, 20);
+
+--
 -- Chỉ mục cho các bảng đã đổ
 --
 
@@ -193,7 +213,7 @@ ALTER TABLE `ve_may_bay`
 -- AUTO_INCREMENT cho bảng `chuyen_bay`
 --
 ALTER TABLE `chuyen_bay`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT cho bảng `dat_ve`
@@ -223,7 +243,7 @@ ALTER TABLE `tai_khoan`
 -- AUTO_INCREMENT cho bảng `ve_may_bay`
 --
 ALTER TABLE `ve_may_bay`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- Các ràng buộc cho các bảng đã đổ

@@ -30,7 +30,8 @@
         <select name="idchuyenbay" id="" class="">
             <?php 
                 foreach ($listChuyenBay as $value) {
-                    echo '<option ' . (($value['id'] == $id) ? 'selected' : '') . ' value="' . $value['id'] . '</option>';
+                    
+                    echo '<option ' . (($value['id'] == $id_chuyen_bay) ? 'selected' : '') . ' value="' . $value['id'] . '">' . $value['id'] . '</option>';
                 }
             ?>
 

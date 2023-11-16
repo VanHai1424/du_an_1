@@ -39,19 +39,19 @@
         <div class="content-text">
             <label for="">Ngày khởi hành</label>
         </div>
-        <input name="ngay_kh" value="" class="" type="date">
+        <input name="ngay_kh" value="" class="" type="date" min="<?= date('Y-m-d');?>">
         <br>
         <br>
         <div class="content-text">
             <label for="">Thời gian đi</label>
         </div>
-        <input name="thoi_gian_di" value="" class="" type="datetime-local">
+        <input name="thoi_gian_di" value="" class="" type="datetime-local" min="<?= date('Y-m-d\TH:i'); ?>">
         <br>
         <br>
         <div class="content-text">
             <label for="">Thời gian đến</label>
         </div>
-        <input name="thoi_gian_den" value="" class="" type="datetime-local">
+        <input name="thoi_gian_den" value="" class="" type="datetime-local" min="<?= date('Y-m-d\TH:i'); ?>">
         <br>
         <br>
         <div class="content-text">
