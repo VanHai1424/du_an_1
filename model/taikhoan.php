@@ -9,6 +9,7 @@
             $_SESSION['admin'] = $user;
         } else if($taikhoan != false && $role == 1) {
             $_SESSION['user'] = $user;
+            $_SESSION['iduser'] = $taikhoan['id'];
         }
         else {
             return "Thông tin tài khoản sai";

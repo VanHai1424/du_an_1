@@ -43,7 +43,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: 1;
+    z-index: 1000;
 }
 
 .nav-list {
@@ -567,15 +567,12 @@ h3 {
 .form-ticket__slot-tg,
 .form-ticket__slot-pt {
     width: 55%;
-    margin: 0 auto;
-    display: none;
+    margin: 0 auto 30px;
+    display: flex;
     flex-wrap: wrap;
     gap: 30px;
 }
 
-.form-ticket__slot-tg {
-    display: flex;
-}
 
 .form-ticket__slot-tg input[type="radio"],
 .form-ticket__slot-pt input[type="radio"] {
@@ -629,9 +626,25 @@ h3 {
     color: #888;
 }
 
+/* .form-ticket__slot-tg input[type="radio"]:not([trang_thai]):disabled+label,
+.form-ticket__slot-pt input[type="radio"]:not([trang_thai]):disabled+label {
+    opacity: 0.5;
+    pointer-events: none;
+    border: 3px solid red;
+    background-color: #f0f0f0;
+    color: red;
+}
+
+.form-ticket__slot-tg input[type="radio"]:not([trang_thai]):disabled+label::before,
+.form-ticket__slot-pt input[type="radio"]:not([trang_thai]):disabled+label::before {
+    border-color: red;
+    background-color: #fff;
+} */
+
 .form-ticket__slot-tg input[type="radio"]:disabled+label::before,
 .form-ticket__slot-pt input[type="radio"]:disabled+label::before {
     border-color: #ccc;
+    background-color: #f0f0f0;
 }
 
 
@@ -647,6 +660,7 @@ h3 {
     font-weight: 700;
     line-height: 30px;
 }
+
 
 .bill__title {
     text-align: center;
@@ -672,6 +686,7 @@ h3 {
 .bill .to {
     margin: 0 10px;
 }
+
 
 .bill__header {
     width: 100%;
@@ -755,4 +770,52 @@ h3 {
     border: 0 !important;
     clip-path: inset(50%) !important;
     white-space: nowrap !important;
+}
+
+.bill--success {
+    width: 700px;
+    height: 450px;
+    margin: 50px auto;
+    box-shadow: 0 0 2px #ccc;
+    text-align: center;
+}
+
+.bill--success h3 {
+    text-align: center;
+}
+
+.bill--success .row {
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bill--success .row:last-child {
+    height: 250px;
+}
+
+.bill--success .row:first-child {
+    background: #34A853;
+    color: #fff;
+    
+}
+
+.bill--success .row i {
+    font-size: 70px;
+}
+
+.bill--success h3 {
+    margin: 20px 0;
+}
+
+.bill--success .row a {
+    display: block;
+    background-color: #0d305c;
+    width: 168px;
+    height: 40px;
+    border-radius: 999px;
+    color: #fff;
+    text-decoration: none;
+    line-height: 38px;
 }

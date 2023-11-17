@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 16, 2023 lúc 03:54 PM
+-- Thời gian đã tạo: Th10 17, 2023 lúc 03:32 PM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.2.4
 
@@ -43,8 +43,8 @@ CREATE TABLE `chuyen_bay` (
 --
 
 INSERT INTO `chuyen_bay` (`id`, `ten_may_bay`, `id_diemDi`, `id_diemDen`, `ngay_khoi_hanh`, `thoi_gian_di`, `thoi_gian_den`, `trang_thai`) VALUES
-(7, 'A1', 7, 8, '2023-11-19', '2023-11-19 07:08:52', '2023-11-19 11:08:52', 'chua bay'),
-(15, 'A2', 7, 10, '2023-11-30', '2023-11-30 10:34:00', '2023-11-30 00:34:00', 'chua bay '),
+(7, 'A1', 7, 8, '2023-11-19', '2023-11-19 07:07:00', '2023-11-19 11:08:00', 'chua bay'),
+(15, 'A2', 7, 10, '2023-11-30', '2023-11-30 10:34:00', '2023-11-30 12:34:00', 'chua bay '),
 (16, 'A3', 10, 11, '2023-11-28', '2023-11-28 10:35:00', '2023-11-28 12:35:00', 'chua bay '),
 (17, 'A4', 14, 12, '2023-11-27', '2023-11-27 03:35:00', '2023-11-27 05:35:00', 'chua bay '),
 (18, 'A5', 8, 14, '2023-11-25', '2023-11-25 19:00:00', '2023-11-25 21:00:00', 'chua bay '),
@@ -65,6 +65,15 @@ CREATE TABLE `dat_ve` (
   `gio_dat` datetime NOT NULL,
   `gia_ve` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `dat_ve`
+--
+
+INSERT INTO `dat_ve` (`id`, `id_ve`, `id_user`, `ngay_dat`, `gio_dat`, `gia_ve`) VALUES
+(12, 18, 5, '2023-11-17', '2023-11-17 20:36:56', 60000),
+(13, 19, 5, '2023-11-17', '2023-11-17 21:20:36', 70000),
+(14, 18, 5, '2023-11-17', '2023-11-17 21:27:08', 60000);
 
 -- --------------------------------------------------------
 
@@ -100,9 +109,18 @@ INSERT INTO `dia_diem` (`id`, `ten`, `img`) VALUES
 CREATE TABLE `ghe_ngoi` (
   `id` int(11) NOT NULL,
   `ma_ghe` int(11) NOT NULL,
-  `id_ve` int(11) NOT NULL,
+  `id_chuyen_bay` int(11) NOT NULL,
   `trang_thai` tinyint(2) NOT NULL COMMENT '0. het slot, 1. con slot'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `ghe_ngoi`
+--
+
+INSERT INTO `ghe_ngoi` (`id`, `ma_ghe`, `id_chuyen_bay`, `trang_thai`) VALUES
+(9, 11, 17, 0),
+(10, 15, 18, 0),
+(11, 10, 17, 0);
 
 -- --------------------------------------------------------
 
@@ -190,7 +208,7 @@ ALTER TABLE `dia_diem`
 --
 ALTER TABLE `ghe_ngoi`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_ghe_ngoi_ve_may_bay` (`id_ve`);
+  ADD KEY `fk_id_chuyen_bay` (`id_chuyen_bay`);
 
 --
 -- Chỉ mục cho bảng `tai_khoan`
@@ -219,7 +237,7 @@ ALTER TABLE `chuyen_bay`
 -- AUTO_INCREMENT cho bảng `dat_ve`
 --
 ALTER TABLE `dat_ve`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT cho bảng `dia_diem`
@@ -231,7 +249,7 @@ ALTER TABLE `dia_diem`
 -- AUTO_INCREMENT cho bảng `ghe_ngoi`
 --
 ALTER TABLE `ghe_ngoi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT cho bảng `tai_khoan`
@@ -243,7 +261,7 @@ ALTER TABLE `tai_khoan`
 -- AUTO_INCREMENT cho bảng `ve_may_bay`
 --
 ALTER TABLE `ve_may_bay`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- Các ràng buộc cho các bảng đã đổ
@@ -267,7 +285,7 @@ ALTER TABLE `dat_ve`
 -- Các ràng buộc cho bảng `ghe_ngoi`
 --
 ALTER TABLE `ghe_ngoi`
-  ADD CONSTRAINT `fk_ghe_ngoi_ve_may_bay` FOREIGN KEY (`id_ve`) REFERENCES `ve_may_bay` (`id`);
+  ADD CONSTRAINT `fk_id_chuyen_bay` FOREIGN KEY (`id_chuyen_bay`) REFERENCES `chuyen_bay` (`id`);
 
 --
 -- Các ràng buộc cho bảng `ve_may_bay`

@@ -1,3 +1,9 @@
+<?php 
+    date_default_timezone_set('Asia/Ho_Chi_Minh');
+    if(is_array($ve)) {
+        extract($ve);
+    }
+?>
 <!-- content -->
 <div class="bill">
             <div class="bill__header">
@@ -5,24 +11,33 @@
             </div>
             <div class="info">
                 <div class="row">
-                    <p>Hành Khách: <span>Hành khách 1</span></p> 
-                    <p>Giới Tính: <span>Nam</span></p> 
-                    <p>Số Điện Thoại: <span>0123456789</span></p> 
+                    <p>Hành khách: <span><?= $hoTen ?></span></p> 
+                    <p>Giới tính: <span><?= $gioiTinh ?></span></p> 
+                    <p>Số điện thoại: <span><?= $sdt ?></span></p> 
+                    <p>Địa chỉ: <span><?= $diaChi ?></span></p> 
                 </div>
                 <div class="row">
-                    <span class="from">Hà Nội</span>
+                    <p>Chuyến bay: <span><?= $id_chuyen_bay ?></span></p>
+                    <span class="from"><?= preg_replace('/\([^)]*\)/', '', $diem_di) ?></span>
                     <i class="fa-solid fa-plane"></i>
-                    <span class="to">TP.Hồ Chí Minh</span>
-                    <p>Máy Bay: <span>A1</span></p>
-                    <p>Loại Vé: <span>Thương gia</span></p>
-                    <p>Mã ghế: <span>2</span></p>
-                    <p>Khởi hành lúc: <span>24/03/2023</span> <span>16:50</span></p>
-                    <p>Hạ cánh lúc: <span>24/03/2023</span> <span>19:50</span></p>
+                    <span class="to"><?= preg_replace('/\([^)]*\)/', '', $diem_den) ?></span>
+                    <p>Tên máy bay: <span><?= $ten_may_bay ?></span></p>
+                    <p>Loại vé: <span><?= ($loaiVe == 1) ? "Phổ thông" : "Thương gia" ?></span></p>
+                    <p>Mã ghế: <span><?= $maGhe ?></span></p>
+                    <p>Khởi hành lúc: <span><?= $thoi_gian_di ?></span></p>
+                    <p>Hạ cánh lúc: <span><?= $thoi_gian_den ?></span></p>
                 </div>
                 <div class="row">
-                    Tổng Giá Vé: <span class="price red">999.000 VND</span>
-                    <form action="">
-                        <input class="bill_submit" type="submit" value="Thanh Toán">
+                    Tổng giá vé: <span class="price red"><?= $gia_ve ?> VND</span>
+                    <form action="index.php?act=thanhtoan" method="POST">
+                        <input type="hidden" name="id_ve" id="" value="<?= $id ?>">
+                        <input type="hidden" name="id_user" id="" value="<?= $_SESSION['iduser'] ?>">
+                        <input type="hidden" name="ngay_dat" id="" value="<?= date('Y-m-d') ?>">
+                        <input type="hidden" name="gio_dat" id="" value="<?= date('Y-m-d H:i:s') ?>">
+                        <input type="hidden" name="gia_ve" id="" value="<?= $gia_ve ?>">
+                        <input type="hidden" name="ma_ghe" id="" value="<?= $maGhe ?>">
+                        <input type="hidden" name="id_chuyen_bay" id="" value="<?= $id_chuyen_bay ?>">
+                        <input class="bill_submit" name="submit" type="submit" value="Thanh Toán">
                     </form>
                 </div>
             </div>

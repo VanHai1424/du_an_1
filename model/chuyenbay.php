@@ -60,8 +60,19 @@
         return $list;
     }
 
-    function loadone_chuyenbay($id) {
-        $sql = "SELECT * FROM `chuyen_bay` WHERE id = $id";
+    function loadone_chuyenbay($id, $page) {
+        if($page == 'admin') $sql = "SELECT * FROM `chuyen_bay` WHERE id = $id";
+        else {
+            $sql = "SELECT cb.*, 
+            dd_di.ten AS diem_di, 
+            dd_den.ten AS diem_den, 
+            dd_den.img AS img_den
+            FROM chuyen_bay cb
+            JOIN dia_diem dd_di ON cb.id_diemDi = dd_di.id
+            JOIN dia_diem dd_den ON cb.id_diemDen = dd_den.id
+            WHERE cb.id = $id
+            ";
+        }
         $cb = pdo_query_one($sql);
         return $cb;
     }

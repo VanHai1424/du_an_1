@@ -167,7 +167,7 @@
                 include 'header.php';
                 $listDiaDiem = loadall_diadiem();
                 if(isset($_GET['id']) && ($_GET['id'])){
-                    $cb = loadone_chuyenbay($_GET['id']);
+                    $cb = loadone_chuyenbay($_GET['id'], 'admin');
                 }
                 include "chuyenbay/update.php";
                 break;
