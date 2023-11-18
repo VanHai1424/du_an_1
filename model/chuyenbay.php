@@ -9,6 +9,7 @@
             FROM chuyen_bay cb
             JOIN dia_diem dd_di ON cb.id_diemDi = dd_di.id
             JOIN dia_diem dd_den ON cb.id_diemDen = dd_den.id
+            WHERE cb.trang_thai LIKE '%chua bay%'
             ORDER BY cb.ngay_khoi_hanh 
             ";
         }
@@ -24,8 +25,8 @@
                 FROM chuyen_bay cb 
                 JOIN dia_diem dd_di ON cb.id_diemDi = dd_di.id 
                 JOIN dia_diem dd_den ON cb.id_diemDen = dd_den.id 
-                WHERE 1";
-        
+                WHERE cb.trang_thai LIKE '%chua bay%'
+                ";
         if (!empty($from)) {
             $sql .= " AND cb.id_diemDi = $from";
         }
@@ -53,6 +54,8 @@
         FROM chuyen_bay cb
         JOIN dia_diem dd_di ON cb.id_diemDi = dd_di.id
         JOIN dia_diem dd_den ON cb.id_diemDen = dd_den.id
+        WHERE cb.trang_thai LIKE '%chua bay%'
+        GROUP BY cb.id_diemDi, cb.id_diemDen
         ORDER BY cb.ngay_khoi_hanh 
         LIMIT 8; 
         ";

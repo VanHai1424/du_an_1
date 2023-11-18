@@ -27,6 +27,7 @@ function validateForm () {
     var form = document.querySelector('.ticket-form');
 
     form.addEventListener('submit', function (event) {
+        console.log(event);
         var slotTgChecked = document.querySelector('.form-ticket__slot-tg input[type="radio"]:checked:not([disabled])');
         var slotPtChecked = document.querySelector('.form-ticket__slot-pt input[type="radio"]:checked:not([disabled])');
         if (!slotTgChecked && !slotPtChecked) {

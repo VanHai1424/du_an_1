@@ -7,7 +7,7 @@
     include "model/ghengoi.php";
     include "model/datve.php";
     include 'view/header.php';
-    $listCbNew = load_cb_home();
+    $listCbHome = load_cb_home();
     $listDiaDiem = loadall_diadiem();
     if(isset($_GET['act']) && ($_GET['act'] != '')){
         $act = $_GET['act'];

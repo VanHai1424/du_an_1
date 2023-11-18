@@ -157,7 +157,7 @@
                             }
                         }
                         echo "
-                            <input type='radio' value='$i' name='slot' id='$i' " . ($disabled ? 'disabled' : '') . " required />
+                            <input type='radio' value='$i' name='slot' id='$i' " . ($disabled ? 'disabled' : '') . " />
                             <label for='$i'>$i</label>
                         ";
                     }
@@ -176,7 +176,7 @@
                             }
                         }
                         echo "
-                            <input type='radio' value='$i' name='slot' id='$i' " . ($disabled ? 'disabled' : '') . " required />
+                            <input type='radio' value='$i' name='slot' id='$i' " . ($disabled ? 'disabled' : '') . " />
                             <label for='$i'>$i</label>
                         ";
                     }

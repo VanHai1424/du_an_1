@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 17, 2023 lúc 03:32 PM
+-- Thời gian đã tạo: Th10 18, 2023 lúc 05:14 AM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.2.4
 
@@ -49,7 +49,10 @@ INSERT INTO `chuyen_bay` (`id`, `ten_may_bay`, `id_diemDi`, `id_diemDen`, `ngay_
 (17, 'A4', 14, 12, '2023-11-27', '2023-11-27 03:35:00', '2023-11-27 05:35:00', 'chua bay '),
 (18, 'A5', 8, 14, '2023-11-25', '2023-11-25 19:00:00', '2023-11-25 21:00:00', 'chua bay '),
 (19, 'A6', 12, 13, '2023-12-02', '2023-12-02 03:00:00', '2023-12-02 04:50:00', 'chua bay '),
-(20, 'B1', 13, 7, '2023-12-10', '2023-12-10 10:00:00', '2023-12-10 12:00:00', 'chua bay');
+(20, 'B1', 13, 7, '2023-12-10', '2023-12-10 10:00:00', '2023-12-10 12:00:00', 'chua bay'),
+(24, 'B2', 7, 8, '2023-11-19', '2023-11-19 10:19:00', '2023-11-19 12:19:00', 'chua bay'),
+(25, 'B3', 7, 15, '2023-11-25', '2023-11-25 10:30:00', '2023-11-25 11:30:00', 'chua bay'),
+(26, 'B9', 15, 12, '2023-11-18', '2023-11-18 10:43:00', '2023-11-18 10:43:00', 'da bay');
 
 -- --------------------------------------------------------
 
@@ -98,7 +101,8 @@ INSERT INTO `dia_diem` (`id`, `ten`, `img`) VALUES
 (11, 'Vinh (VII)', 'vinh.jpg'),
 (12, 'Thanh Hóa (THD)', 'thanhhoa.jpg'),
 (13, 'Nha Trang (CXR)', 'nhatrang.jpg'),
-(14, 'Huế (HUI)', 'hue.jpg');
+(14, 'Huế (HUI)', 'hue.jpg'),
+(15, 'Đà Nẵng (DAD)', 'danang.jpg');
 
 -- --------------------------------------------------------
 
@@ -175,7 +179,9 @@ INSERT INTO `ve_may_bay` (`id`, `gia_ve`, `loai_ve`, `id_chuyen_bay`) VALUES
 (21, 90000, 1, 19),
 (22, 100000, 2, 19),
 (23, 110000, 1, 20),
-(24, 120000, 2, 20);
+(24, 120000, 2, 20),
+(27, 150000, 1, 25),
+(28, 160000, 2, 25);
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -231,25 +237,25 @@ ALTER TABLE `ve_may_bay`
 -- AUTO_INCREMENT cho bảng `chuyen_bay`
 --
 ALTER TABLE `chuyen_bay`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT cho bảng `dat_ve`
 --
 ALTER TABLE `dat_ve`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT cho bảng `dia_diem`
 --
 ALTER TABLE `dia_diem`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT cho bảng `ghe_ngoi`
 --
 ALTER TABLE `ghe_ngoi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT cho bảng `tai_khoan`
@@ -261,7 +267,7 @@ ALTER TABLE `tai_khoan`
 -- AUTO_INCREMENT cho bảng `ve_may_bay`
 --
 ALTER TABLE `ve_may_bay`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- Các ràng buộc cho các bảng đã đổ

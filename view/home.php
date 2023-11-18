@@ -52,7 +52,7 @@
                         <div class="row-item">
                             <?php 
                                 $i = 1;
-                                foreach ($listCbNew as $value) {
+                                foreach ($listCbHome as $value) {
                                     extract($value);
                             ?>
                             <div class="item">
@@ -61,7 +61,12 @@
                                     <h3><?= $diem_di ?> đến <?= $diem_den ?></h3>
                                     <p class="date">Ngày đi: <?= date('d/m/Y', strtotime($ngay_khoi_hanh)) ?></p>
                                 </div>
-                                <a href="<?= (isset($_SESSION['user']) ? "index.php?act=datve&id=$id" : "index.php?act=dangnhap") ?>" class="btn-buy">Đặt Vé</a>
+                                <form action="index.php?act=search" method="POST">
+                                    <input type="hidden" name="diemdi" id="" value="<?= $id_diemDi ?>">
+                                    <input type="hidden" name="diemden" id="" value="<?= $id_diemDen ?>">
+                                    <input type="hidden" name="ngaydi" id="" value="<?= $ngay_khoi_hanh ?>">
+                                    <input type="submit" name="search" value="Tìm kiếm" class="btn-buy">
+                                </form>
                             </div>
                             <?php if ($i % 4 == 0) { ?>
                                 </div>
