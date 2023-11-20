@@ -5,8 +5,8 @@
         return $list;
     }
 
-    function insert_ghengoi($maGhe, $idChuyenBay, $trangThai) {
-        $sql = "INSERT INTO `ghe_ngoi`(`ma_ghe`, `id_chuyen_bay`, `trang_thai`) VALUES ('$maGhe','$idChuyenBay',$trangThai)";
+    function insert_ghengoi($maGhe, $idVe, $trangThai) {
+        $sql = "INSERT INTO `ghe_ngoi`(`ma_ghe`, `id_ve`, `trang_thai`) VALUES ('$maGhe','$idVe',$trangThai)";
         pdo_execute($sql);
     }
 

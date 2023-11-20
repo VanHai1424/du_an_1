@@ -27,7 +27,6 @@ function validateForm () {
     var form = document.querySelector('.ticket-form');
 
     form.addEventListener('submit', function (event) {
-        console.log(event);
         var slotTgChecked = document.querySelector('.form-ticket__slot-tg input[type="radio"]:checked:not([disabled])');
         var slotPtChecked = document.querySelector('.form-ticket__slot-pt input[type="radio"]:checked:not([disabled])');
         if (!slotTgChecked && !slotPtChecked) {
@@ -42,8 +41,8 @@ validateForm();
 
 
 function showSeat() {
-    var veThuongGia = document.querySelector('.select_slot_thuonggia');
-    var vePhoThong = document.querySelector('.select_slot_phothong');
+    var radioThuongGia = document.querySelector('.select_slot_thuonggia');
+    var radioPhoThong = document.querySelector('.select_slot_phothong');
     var listSlotTg = document.querySelectorAll('.form-ticket__slot-tg input[type="radio"]');
     var listSlotPt = document.querySelectorAll('.form-ticket__slot-pt input[type="radio"]');
     
@@ -54,10 +53,11 @@ function showSeat() {
         }
     });
 
-    veThuongGia.addEventListener('click', function () {
+    radioThuongGia.addEventListener('change', function () {
         listSlotTg.forEach(element => {
             if(element.hasAttribute('trang_thai')) {
                 element.disabled = false;
+                element.removeAttribute('trang_thai');
             }
         });
         listSlotPt.forEach(element => {
@@ -69,10 +69,11 @@ function showSeat() {
         
     });
 
-    vePhoThong.addEventListener('click', function () {
+    radioPhoThong.addEventListener('change', function () {
         listSlotPt.forEach(element => {
             if(element.hasAttribute('trang_thai')) {
                 element.disabled = false;
+                element.removeAttribute('trang_thai');
             }
         });
         listSlotTg.forEach(element => {
@@ -85,5 +86,3 @@ function showSeat() {
 }
 
 showSeat();
-
-

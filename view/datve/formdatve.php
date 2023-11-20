@@ -3,6 +3,12 @@
         $dateTimeObject = new DateTime($timeString);
         return $dateTimeObject->format('H:i');
     }
+
+    function getGiaVe($listVe, $loaiVe) {
+        foreach ($listVe as $ve) {
+            if($ve['loai_ve'] == $loaiVe) return $ve['gia_ve']; 
+        }
+    }
     
     if(is_array($cb)) {
         extract($cb);
@@ -145,48 +151,90 @@
                 <input type="radio" name="slot" id="28" />
                 <label for="28">28</label>
             </div> -->
-
-            <div class="form-ticket__slot-tg" id="slot_tg">
-                <?php
-                    for ($i = 1; $i <= 12; $i++) {
+            
+            <div>
+                <div class="form-ticket__slot-tg" id="slot_tg">
+                <?php 
+                    for ($i = 1; $i <= 8; $i++) {
                         $disabled = false;
-                        foreach ($listGheNgoi as $ghe) {
-                            if ($ghe['ma_ghe'] == $i && $ghe['trang_thai'] == 0 && $ghe['id_chuyen_bay'] == $id) {
-                                $disabled = true;
-                                break;
+                        foreach ($listVe as $ve) {
+                            foreach ($listGheNgoi as $ghe) {
+                                if ($ghe['ma_ghe'] == $i && $ghe['trang_thai'] == 0 && $ghe['id_ve'] == $ve['id']) {
+                                    $disabled = true;
+                                    break;
+                                }
                             }
                         }
+
                         echo "
                             <input type='radio' value='$i' name='slot' id='$i' " . ($disabled ? 'disabled' : '') . " />
-                            <label for='$i'>$i</label>
+                            <label for='$i' " . (($i % 4 == 2) ? 'class="mr35"' : '') . ">$i</label>
                         ";
                     }
                 ?>
-            </div>
+
+                </div>
 
 
-            <div class="form-ticket__slot-pt" id="slot_pt">
-                <?php
-                    for ($i = 13; $i <= 28; $i++) {
-                        $disabled = false;
-                        foreach ($listGheNgoi as $ghe) {
-                            if ($ghe['ma_ghe'] == $i && $ghe['trang_thai'] == 0 && $ghe['id_chuyen_bay'] == $id) {
-                                $disabled = true;
-                                break; 
+                <div class="form-ticket__slot-pt" id="slot_pt">
+                    <?php
+                        for ($i = 9; $i <= 28; $i++) {
+                            $disabled = false;
+                            foreach ($listVe as $ve) {
+                                foreach ($listGheNgoi as $ghe) {
+                                    if ($ghe['ma_ghe'] == $i && $ghe['trang_thai'] == 0 && $ghe['id_ve'] == $ve['id']) {
+                                        $disabled = true;
+                                        break; 
+                                    }
+                                }
                             }
+                            echo "
+                                <input type='radio' value='$i' name='slot' id='$i' " . ($disabled ? 'disabled' : '') . " />
+                                <label for='$i' " . (($i % 4 == 2) ? 'class="mr35"' : '') . ">$i</label>
+                            ";
                         }
-                        echo "
-                            <input type='radio' value='$i' name='slot' id='$i' " . ($disabled ? 'disabled' : '') . " />
-                            <label for='$i'>$i</label>
-                        ";
-                    }
-                ?>
+                    ?>
+                </div>
             </div>
-
-
+            <div style="text-align: right; margin-right: 206px;"><span id="gia_ve"></span> </div>
             <div class="form-ticket__button">
                 <input style="margin-bottom: 20px;" type="submit" name="submit" value="TIẾP TỤC">
             </div>
         </form>
     </div>
 </div>
+
+<!-- <script>
+    var giaVeThuongGia = <?= getGiaVe($listVe, 2) ?>;
+    var giaVePhoThong = <?= getGiaVe($listVe, 1) ?>;
+    var radioThuongGia = document.querySelector('.select_slot_thuonggia');
+    var radioPhoThong = document.querySelector('.select_slot_phothong');
+    var giaVeElement = document.getElementById('gia_ve');
+    radioThuongGia.addEventListener('change', function () {
+        giaVeElement.textContent = giaVeThuongGia + ' VND';
+    });
+
+    radioPhoThong.addEventListener('change', function () {
+        giaVeElement.textContent = giaVePhoThong + ' VND';
+    });
+</script> -->
+
+<script>
+    var giaVeThuongGia = <?= getGiaVe($listVe, 2) ?>;
+    var giaVePhoThong = <?= getGiaVe($listVe, 1) ?>;
+    var radioThuongGia = document.querySelectorAll('.form-ticket__slot-tg input[type="radio"]');
+    var radioPhoThong = document.querySelectorAll('.form-ticket__slot-pt input[type="radio"]');
+    var giaVeElement = document.getElementById('gia_ve');
+    radioPhoThong.forEach(element => {
+        element.addEventListener('change', function () {
+            giaVeElement.textContent = 'Giá vé: ' + giaVePhoThong + ' VND';
+        });
+    });
+    radioThuongGia.forEach(element => {
+        element.addEventListener('change', function () {
+            giaVeElement.textContent = 'Giá vé: ' + giaVeThuongGia + ' VND';
+        });
+    });
+
+    
+</script>

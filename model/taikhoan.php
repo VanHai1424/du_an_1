@@ -1,31 +1,24 @@
 <?php 
     session_start();
 
-    function dangnhap($user, $pass, $role) {
-        $sql = "SELECT * FROM tai_khoan WHERE user='$user' and pass='$pass' and role = '$role'";
+    function dangnhap($user, $pass) {
+        $sql = "SELECT * FROM tai_khoan WHERE user='$user' and pass='$pass'";
         $taikhoan = pdo_query_one($sql);
 
-        if ($taikhoan != false && $role == 0) {
-            $_SESSION['admin'] = $user;
-        } else if($taikhoan != false && $role == 1) {
+        if ($taikhoan != false) {
             $_SESSION['user'] = $user;
             $_SESSION['iduser'] = $taikhoan['id'];
-        }
+            $_SESSION['role'] = $taikhoan['role'];
+        } 
         else {
             return "Thông tin tài khoản sai";
         }
     }
 
-    function dangxuat($role) {
-        if($role == 'admin') {
-            if (isset($_SESSION['admin'])) {
-                unset($_SESSION['admin']);
-            }
-        }
-        else if($role == 'user') {
-            if (isset($_SESSION['user'])) {
-                unset($_SESSION['user']);
-            }
+    function dangxuat() {
+        if (isset($_SESSION['user'])) {
+            unset($_SESSION['user']);
+            unset($_SESSION['role']);
         }
     }
     

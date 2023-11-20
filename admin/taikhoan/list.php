@@ -1,5 +1,5 @@
 <?php
-    if (isset($_SESSION['admin'])) {
+    if (isset($_SESSION['user']) && ($_SESSION['role'] == 0)) {
 ?>
     <div class="rowheader">
         <h1>Danh sách tài khoản</h1>

@@ -11,7 +11,7 @@
         return $vmb;
     }
 
-    function get_ve($loaiVe, $idChuyenBay) {
+    function get_one_ve($idChuyenBay, $loaiVe) {
         $sql = "SELECT vmb.*, cb.ten_may_bay, 
         cb.thoi_gian_di, cb.thoi_gian_den, 
         dd_di.ten AS diem_di, 
@@ -23,6 +23,21 @@
         WHERE vmb.loai_ve = $loaiVe AND cb.id = $idChuyenBay";
         $ve = pdo_query_one($sql);
         return $ve;
+    }
+
+
+    function get_all_ve($idChuyenBay) {
+        $sql = "SELECT vmb.*, cb.ten_may_bay, 
+        cb.thoi_gian_di, cb.thoi_gian_den, 
+        dd_di.ten AS diem_di, 
+        dd_den.ten AS diem_den
+        FROM `ve_may_bay` AS vmb
+        INNER JOIN chuyen_bay cb ON vmb.id_chuyen_bay = cb.id
+        INNER JOIN dia_diem dd_di ON cb.id_diemDi = dd_di.id
+        INNER JOIN dia_diem dd_den ON cb.id_diemDen = dd_den.id
+        WHERE cb.id = $idChuyenBay";
+        $listVe = pdo_query($sql);
+        return $listVe;
     }
 
     function delete_vemaybay($id) {

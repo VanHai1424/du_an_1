@@ -1,4 +1,5 @@
 <?php 
+    include 'header.php';
     include "../model/pdo.php";
     include "../model/taikhoan.php";
     include "../model/diadiem.php";
@@ -7,37 +8,13 @@
     if(isset($_GET['act']) && ($_GET['act'] != '')) {
         $act = $_GET['act'];
         switch($act) {
-            case 'home':
-                include 'header.php';
-                include 'home.php';
-                break;
-
-            case 'dangnhap':
-                if(isset($_POST['submit'])) {
-                    $user = $_POST['user'];
-                    $pass = $_POST['pass'];
-                    $loginMess = dangnhap($user, $pass, 0);
-                    if($loginMess == "") {
-                        header("Location: index.php?act=home");
-                    } else {
-                        include "login/dangnhap.php";
-                    } 
-                }
-                break;
-            case 'dangxuat':
-                dangxuat('admin');
-                include "login/dangnhap.php";
-                break;
-
             // Tai khoan
             case 'listtk':
-                include 'header.php';
                 $listTaiKhoan = loadall_taikhoan();
                 include 'taikhoan/list.php';
                 break;
 
             case 'addtk':
-                include 'header.php';
                 if(isset($_POST['submit'])) {
                     $user = $_POST['user'];
                     $pass = $_POST['pass'];
@@ -50,7 +27,6 @@
                 break;
 
             case "updatetk":
-                include 'header.php';
                 if(isset($_GET['id']) && ($_GET['id'])){
                     $tk = loadone_taikhoan($_GET['id']);
                 }
@@ -58,7 +34,6 @@
                 break;
             
             case "suatk":
-                include 'header.php';
                 if(isset($_POST['capnhat']) && ($_POST['capnhat'])){
                     $id = $_POST['id'];
                     $user = $_POST['user'];
@@ -73,7 +48,6 @@
                 break;
 
             case 'deltk':
-                include 'header.php';
                 if(isset($_GET['id']) && ($_GET['id'])){
                     delete_taikhoan($_GET['id']);
                 }
@@ -83,13 +57,11 @@
 
             // Dia diem
             case 'listdd':
-                include 'header.php';
                 $listDiaDiem = loadall_diadiem();
                 include 'diadiem/list.php';
                 break; 
                 
             case 'adddd':
-                include 'header.php';   
                 if(isset($_POST['submit'])) {
                     $name = $_POST['name'];
                     $fileName = basename($_FILES['img']['name']);
@@ -104,7 +76,6 @@
                 break;
 
             case "updatedd":
-                include 'header.php';
                 if(isset($_GET['id']) && ($_GET['id'])){
                     $dd = loadone_diadiem($_GET['id']);
                 }
@@ -112,7 +83,6 @@
                 break;
             
             case "suadd":
-                include 'header.php';
                 if(isset($_POST['capnhat']) && ($_POST['capnhat'])){
                     $id = $_POST['id'];
                     $name = $_POST['name'];
@@ -131,7 +101,6 @@
                 break;
 
             case 'deldd':
-                include 'header.php';
                 if(isset($_GET['id']) && ($_GET['id'])){
                     delete_diadiem($_GET['id']);
                 }
@@ -141,13 +110,11 @@
 
             // Chuyen bay
             case 'listcb':
-                include 'header.php';
                 $listChuyenBay = loadall_chuyenbay('admin');
                 include 'chuyenbay/list.php';
                 break; 
 
             case 'addcb':
-                include 'header.php';   
                 $listDiaDiem = loadall_diadiem();
                 if(isset($_POST['submit'])) {
                     $name = $_POST['name'];
@@ -164,7 +131,6 @@
                 break;
 
             case "updatecb":
-                include 'header.php';
                 $listDiaDiem = loadall_diadiem();
                 if(isset($_GET['id']) && ($_GET['id'])){
                     $cb = loadone_chuyenbay($_GET['id'], 'admin');
@@ -173,7 +139,6 @@
                 break;
             
             case "suacb":
-                include 'header.php';
                 if(isset($_POST['capnhat']) && ($_POST['capnhat'])){
                     $id = $_POST['id'];
                     $name = $_POST['name'];
@@ -191,7 +156,6 @@
                 break;
 
             case 'delcb':
-                include 'header.php';
                 if(isset($_GET['id']) && ($_GET['id'])){
                     delete_chuyenbay($_GET['id']);
                 }
@@ -201,13 +165,11 @@
 
             // vé máy bay
             case 'listvmb':
-                include 'header.php';
                 $listVeMayBay = loadall_vemaybay();
                 include 'vemaybay/list.php';
                 break;
 
             case 'addvmb':
-                include 'header.php';
                 $listChuyenBay = loadall_chuyenbay('admin');
                 if(isset($_POST['submit'])) {
                     $gia_ve = $_POST['giave'];
@@ -220,7 +182,6 @@
                 break;
 
             case "updatevmb":
-                include 'header.php';
                 $listChuyenBay = loadall_chuyenbay('admin');
                 if(isset($_GET['id']) && ($_GET['id'])){
                     $vmb = loadone_vemaybay($_GET['id']);
@@ -229,7 +190,6 @@
                 break;
             
             case "suavmb":
-                include 'header.php';
                 if(isset($_POST['capnhat']) && ($_POST['capnhat'])){
                     $id = $_POST['id'];
                     $gia_ve = $_POST['giave'];
@@ -243,7 +203,6 @@
                 break;
 
             case 'delvmb':
-                include 'header.php';
                 if(isset($_GET['id']) && ($_GET['id'])){
                     delete_vemaybay($_GET['id']);
                 }
@@ -253,15 +212,14 @@
 
             // Bieu do
             case 'bieudo':
-                include 'header.php';
                 include 'bieudo.php';
                 break;
             default:
-                include 'login/dangnhap.php';
+                include 'home.php';
                 break;
         }
     } else {
-        include 'login/dangnhap.php';
+        include 'home.php';
     }
     include 'footer.php';
 ?>

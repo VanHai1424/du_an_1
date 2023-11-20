@@ -32,7 +32,7 @@
                 if(isset($_GET['id']) && ($_GET['id'] > 0)) {
                     $cb = loadone_chuyenbay($_GET['id'], 'user');
                     $listGheNgoi = loadall_ghengoi();
-                    $listVeMayBay = loadall_vemaybay();
+                    $listVe = get_all_ve($_GET['id']);
                     include 'view/datve/formdatve.php';
                 }
                 break;
@@ -46,7 +46,7 @@
                     $loaiVe = $_POST['select_slot'];
                     $maGhe = $_POST['slot'];
                     $idChuyenBay = $_POST['id'];
-                    $ve = get_ve($loaiVe, $idChuyenBay);
+                    $ve = get_one_ve($idChuyenBay, $loaiVe);
 
                 }
                 include 'view/datve/hoadon.php';
@@ -62,7 +62,7 @@
                     $maGhe = $_POST['ma_ghe'];
                     $idChuyenBay = $_POST['id_chuyen_bay'];
                     insert_datve($idVe, $idUser, $ngayDat, $gioDat, $giaVe);
-                    insert_ghengoi($maGhe, $idChuyenBay, 0);
+                    insert_ghengoi($maGhe, $idVe, 0);
                 }
                 include 'view/datve/datvethanhcong.php';
                 break;
@@ -71,16 +71,17 @@
                 if(isset($_POST['submit'])) {
                     $user = $_POST['user'];
                     $pass = $_POST['pass'];
-                    $loginMess = dangnhap($user, $pass, 1);
+                    $loginMess = dangnhap($user, $pass);
                     if($loginMess == "") {
-                        header("Location: index.php");
+                        if($_SESSION['role'] == 0) header("Location: admin/index.php");
+                        else header("Location: index.php");
                     }
                 }
                 include 'view/login/dangnhap.php';
                 break;
 
             case 'dangxuat':
-                dangxuat('user');
+                dangxuat();
                 header("Location: index.php");
                 break;
 
