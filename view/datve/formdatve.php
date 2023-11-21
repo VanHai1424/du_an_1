@@ -204,21 +204,6 @@
     </div>
 </div>
 
-<!-- <script>
-    var giaVeThuongGia = <?= getGiaVe($listVe, 2) ?>;
-    var giaVePhoThong = <?= getGiaVe($listVe, 1) ?>;
-    var radioThuongGia = document.querySelector('.select_slot_thuonggia');
-    var radioPhoThong = document.querySelector('.select_slot_phothong');
-    var giaVeElement = document.getElementById('gia_ve');
-    radioThuongGia.addEventListener('change', function () {
-        giaVeElement.textContent = giaVeThuongGia + ' VND';
-    });
-
-    radioPhoThong.addEventListener('change', function () {
-        giaVeElement.textContent = giaVePhoThong + ' VND';
-    });
-</script> -->
-
 <script>
     var giaVeThuongGia = <?= getGiaVe($listVe, 2) ?>;
     var giaVePhoThong = <?= getGiaVe($listVe, 1) ?>;

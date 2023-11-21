@@ -58,16 +58,16 @@
                             <div class="item">
                                 <img src="upload/<?= $img_den ?>" alt="ảnh lỗi">
                                 <div class="item-text">
-                                    <h3><?= $diem_di ?> đến <?= $diem_den ?></h3>
+                                    <h3 style="line-height: 1.6;"><?= $diem_di ?> đến <?= $diem_den ?></h3>
                                 </div>
                                 <form action="index.php?act=search" method="POST">
                                     <input type="hidden" name="diemdi" id="" value="<?= $id_diemDi ?>">
                                     <input type="hidden" name="diemden" id="" value="<?= $id_diemDen ?>">
                                     <input type="hidden" name="ngaydi" id="" value="">
-                                    <input style="margin-top: 60px;" type="submit" name="search" value="Tìm kiếm" class="btn-buy">
+                                    <input type="submit" name="search" value="Tìm kiếm" class="btn-buy">
                                 </form>
                             </div>
-                            <?php if ($i % 4 == 0) { ?>
+                            <?php if ($i % 4 == 0) { ?>     
                                 </div>
                                 <div class="row-item">
                             <?php }

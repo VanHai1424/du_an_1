@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 20, 2023 lúc 11:34 AM
+-- Thời gian đã tạo: Th10 21, 2023 lúc 07:13 AM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.2.4
 
@@ -52,7 +52,7 @@ INSERT INTO `chuyen_bay` (`id`, `ten_may_bay`, `id_diemDi`, `id_diemDen`, `ngay_
 (20, 'B1', 13, 7, '2023-12-10', '2023-12-10 10:00:00', '2023-12-10 12:00:00', 'chua bay'),
 (24, 'B2', 7, 8, '2023-11-22', '2023-11-22 10:19:00', '2023-11-22 12:19:00', 'chua bay'),
 (25, 'B3', 7, 15, '2023-11-25', '2023-11-25 10:30:00', '2023-11-25 11:30:00', 'chua bay'),
-(26, 'B9', 15, 12, '2023-11-18', '2023-11-18 10:43:00', '2023-11-18 10:43:00', 'da bay');
+(26, 'B9', 15, 12, '2023-11-21', '2023-11-21 12:30:00', '2023-11-21 14:00:00', 'da bay');
 
 -- --------------------------------------------------------
 
@@ -185,7 +185,9 @@ INSERT INTO `ve_may_bay` (`id`, `gia_ve`, `loai_ve`, `id_chuyen_bay`) VALUES
 (27, 150000, 1, 25),
 (28, 160000, 2, 25),
 (29, 170000, 1, 24),
-(30, 180000, 2, 24);
+(30, 180000, 2, 24),
+(31, 190000, 1, 26),
+(32, 200000, 2, 26);
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -271,7 +273,7 @@ ALTER TABLE `tai_khoan`
 -- AUTO_INCREMENT cho bảng `ve_may_bay`
 --
 ALTER TABLE `ve_may_bay`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- Các ràng buộc cho các bảng đã đổ
@@ -302,6 +304,16 @@ ALTER TABLE `ghe_ngoi`
 --
 ALTER TABLE `ve_may_bay`
   ADD CONSTRAINT `fk_ve_may_bay_chuyen_bay` FOREIGN KEY (`id_chuyen_bay`) REFERENCES `chuyen_bay` (`id`);
+
+DELIMITER $$
+--
+-- Sự kiện
+--
+CREATE DEFINER=`root`@`localhost` EVENT `update_flight_status_event` ON SCHEDULE EVERY 5 MINUTE STARTS '2023-11-21 12:10:58' ON COMPLETION NOT PRESERVE ENABLE DO UPDATE `chuyen_bay`
+    SET `trang_thai` = 'da bay'
+    WHERE `thoi_gian_di` < NOW() AND `trang_thai` = 'chua bay'$$
+
+DELIMITER ;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
