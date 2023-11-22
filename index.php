@@ -84,7 +84,8 @@
                 dangxuat();
                 header("Location: index.php");
                 break;
-
+            
+                // haha
             case 'dangky':
                 include 'view/login/dangky.php';
                 break;
