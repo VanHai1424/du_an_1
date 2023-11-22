@@ -85,8 +85,14 @@
                 header("Location: index.php");
                 break;
             
-                // haha
             case 'dangky':
+                if(isset($_POST['submit'])) {
+                    $user = $_POST['user'];
+                    $pass = $_POST['pass'];
+                    $email = $_POST['email'];
+                    insert_taikhoan($user, $pass, $email);
+                    header('Location: index.php?act=dangnhap');
+                }
                 include 'view/login/dangky.php';
                 break;
 
