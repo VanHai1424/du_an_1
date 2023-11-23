@@ -36,7 +36,6 @@
                         <input type="hidden" name="gio_dat" id="" value="<?= date('Y-m-d H:i:s') ?>">
                         <input type="hidden" name="gia_ve" id="" value="<?= $gia_ve ?>">
                         <input type="hidden" name="ma_ghe" id="" value="<?= $maGhe ?>">
-                        <input type="hidden" name="id_chuyen_bay" id="" value="<?= $id_chuyen_bay ?>">
                         <input class="bill_submit" name="submit" type="submit" value="Thanh Toán">
                     </form>
                 </div>
